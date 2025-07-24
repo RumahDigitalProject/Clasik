@@ -15,15 +15,50 @@
       height: 100%;
       width: 100%;
       overflow: hidden;
+      font-family: sans-serif;
     }
 
     body {
       background: url('pembuka.webp') no-repeat center center;
       background-size: contain;
       background-color: black;
+      position: relative;
+    }
+
+    .btn-buka {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.85);
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: 0.3s ease;
+    }
+
+    .btn-buka:hover {
+      background: white;
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    @media (max-height: 700px) {
+      .btn-buka {
+        bottom: 15px;
+        padding: 10px 20px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Ganti href ke link undangan kamu -->
+  <a href="undangan.html" class="btn-buka">Buka Undangan</a>
+
 </body>
 </html>
