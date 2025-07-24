@@ -16,13 +16,13 @@
     /* Agar body dan html memenuhi tinggi layar dan tidak bisa di-scroll */
     body, html {
       height: 100%;
-      overflow: hidden; /* Biar gak bisa scroll */
+      overflow: hidden; /* Biar tidak bisa scroll */
     }
 
     /* Container utama slideshow */
     .slideshow {
       position: relative;
-      height: 100vh; /* Tinggi penuh layar */
+      height: 100vh;
       width: 100%;
     }
 
@@ -31,77 +31,99 @@
       position: absolute;
       height: 100%;
       width: 100%;
-      background-size: cover;         /* Gambar menyesuaikan ukuran layar */
-      background-position: center;    /* Gambar tetap di tengah */
-      opacity: 0;                     /* Default disembunyikan */
-      animation: fadeSlide 10s infinite; /* Animasi fade 10 detik berulang */
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fadeSlide 10s infinite;
     }
 
     /* Gambar 1 */
     .slide1 {
-      background-image: url('dasar1.jpg'); /* Ganti dengan path gambar 1 */
-      animation-delay: 0s; /* Mulai dari awal */
+      background-image: url('dasar1.jpg'); /* Ganti dengan gambar kamu */
+      animation-delay: 0s;
     }
 
     /* Gambar 2 */
     .slide2 {
-      background-image: url('dasar2.jpg'); /* Ganti dengan path gambar 2 */
-      animation-delay: 5s; /* Muncul setelah 5 detik */
+      background-image: url('dasar2.jpg'); /* Ganti dengan gambar kamu */
+      animation-delay: 5s;
     }
 
-    /* Animasi perpindahan antar gambar */
+    /* Animasi fade antar gambar */
     @keyframes fadeSlide {
       0% { opacity: 0; }
-      10% { opacity: 1; }  /* Muncul */
-      45% { opacity: 1; }  /* Tetap terlihat */
-      55% { opacity: 0; }  /* Mulai hilang */
-      100% { opacity: 0; } /* Hilang sepenuhnya */
+      10% { opacity: 1; }
+      45% { opacity: 1; }
+      55% { opacity: 0; }
+      100% { opacity: 0; }
     }
 
-    /* Overlay gradasi menyatu mulus */
+    /* Overlay hitam gradasi dari bawah */
     .black-overlay {
       position: absolute;
       bottom: 0;
-      height: 80vh; /* 50% tinggi layar */
+      height: 80vh;
       width: 100%;
       z-index: 2;
       background: linear-gradient(to top,
-        rgba(0, 0, 0, 1) 0%,     /* Hitam pekat dari bawah */
-        rgba(0, 0, 0, 1) 30%,    /* Masih pekat sampai 30% */
-        rgba(0, 0, 0, 0.7) 55%,  /* Mulai gradasi */
-        rgba(0, 0, 0, 0.3) 70%,  /* Semakin transparan */
-        rgba(0, 0, 0, 0) 85%     /* Transparan penuh di atas */
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 30%,
+        rgba(0, 0, 0, 0.7) 55%,
+        rgba(0, 0, 0, 0.3) 70%,
+        rgba(0, 0, 0, 0) 85%
       );
-      pointer-events: none; /* Biar tidak menghalangi klik */
+      pointer-events: none;
     }
 
-    /* Tulisan di bagian bawah */
-    .text-bottom {
+    /* Bungkus semua teks agar bisa diposisikan dengan mudah */
+    .content-wrapper {
       position: absolute;
-      bottom: 80px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
       width: 100%;
       text-align: center;
       color: white;
-      z-index: 3;
+      padding: 0 20px;
+    }
+
+    /* Tulisan heading "The Wedding of" */
+    .content-wrapper h2 {
+      font-size: 16px;
+      letter-spacing: 2px;
       font-family: 'Poppins', sans-serif;
     }
 
-    .text-bottom h2 {
-      font-size: 16px;
-      letter-spacing: 2px;
+    /* Nama pengantin */
+    .nama-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
     }
 
-    .text-bottom .nama {
+    .nama {
       font-family: 'Great Vibes', cursive;
       font-size: 26px;
-      margin: 4px 0;
+      line-height: 1.2;
+      display: flex;
+      flex-direction: column;
     }
 
+    .dan {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      margin: 0 10px;
+    }
+
+    /* Hitung mundur */
     .countdown {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin: 6px 0;
+      margin-top: 8px;
     }
 
     .countdown div {
@@ -122,26 +144,44 @@
       color: #ccc;
     }
 
+    /* Tanggal */
     .tanggal {
       font-size: 12px;
       color: #eee;
+      margin-top: 6px;
+      font-family: 'Poppins', sans-serif;
     }
   </style>
 </head>
 
 <body>
   <div class="slideshow">
+    <!-- Gambar slide -->
     <div class="slide slide1"></div>
     <div class="slide slide2"></div>
 
-    <!-- Overlay gradasi menyatu -->
+    <!-- Overlay gradasi hitam -->
     <div class="black-overlay"></div>
 
-    <!-- Tulisan di bagian bawah -->
-    <div class="text-bottom">
+    <!-- Konten teks di atas gradasi -->
+    <div class="content-wrapper">
+      <!-- Judul utama -->
       <h2>The Wedding of</h2>
-      <div class="nama">Bambang Irswan & Ayu Kusumaningrum</div>
 
+      <!-- Nama pengantin dibagi 2 baris masing-masing -->
+      <div class="nama-wrapper">
+        <div class="nama">
+          <div>Bambang</div>
+          <div>Irswan</div>
+        </div>
+        <div class="dan">&</div>
+        <div class="nama">
+          <div>Ayu</div>
+          <div>Kusumaningrum</div>
+        </div>
+      </div>
+
+      <!-- Countdown -->
       <div class="countdown">
         <div><span id="hari">00</span><small>Hari</small></div>
         <div><span id="jam">00</span><small>Jam</small></div>
@@ -149,11 +189,12 @@
         <div><span id="detik">00</span><small>Detik</small></div>
       </div>
 
+      <!-- Tanggal acara -->
       <div class="tanggal">Selasa, 7 Oktober 2025 • 08.00 WIB</div>
     </div>
   </div>
 
-  <!-- Countdown Script -->
+  <!-- Script Hitung Mundur -->
   <script>
     const targetDate = new Date("2025-10-07T08:00:00").getTime();
 
