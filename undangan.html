@@ -1,204 +1,90 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Undangan Pernikahan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan</title>
+
   <style>
+    /* Reset margin dan padding semua elemen */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    html, body {
+
+    /* Agar body dan html memenuhi tinggi layar dan tidak bisa di-scroll */
+    body, html {
       height: 100%;
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-      background-color: black;
-      overflow: hidden;
+      overflow: hidden; /* Biar gak bisa scroll */
     }
 
-    .hero {
+    /* Container utama slideshow */
+    .slideshow {
       position: relative;
+      height: 100vh; /* Tinggi penuh layar */
       width: 100%;
-      height: 100vh;
-      overflow: hidden;
     }
 
-    .hero img {
+    /* Setiap slide (gambar latar belakang) */
+    .slide {
       position: absolute;
-      width: 100%;
       height: 100%;
-      object-fit: cover;
-      animation: fadeSlide 16s infinite;
+      width: 100%;
+      background-size: cover;         /* Gambar menyesuaikan ukuran layar */
+      background-position: center;    /* Gambar tetap di tengah */
+      opacity: 0;                     /* Default disembunyikan */
+      animation: fadeSlide 4s infinite; /* Animasi fade 10 detik berulang */
     }
 
-    .hero img:nth-child(2) {
-      animation-delay: 8s;
+    /* Gambar 1 */
+    .slide1 {
+      background-image: url('dasar1.jpg'); /* Ganti dengan path gambar 1 */
+      animation-delay: 0s; /* Mulai dari awal */
     }
 
+    /* Gambar 2 */
+    .slide2 {
+      background-image: url('dasar2.jpg'); /* Ganti dengan path gambar 2 */
+      animation-delay: 5s; /* Muncul setelah 5 detik */
+    }
+
+    /* Animasi perpindahan antar gambar */
     @keyframes fadeSlide {
-      0% { opacity: 1; }
-      45% { opacity: 1; }
-      50% { opacity: 0; }
-      95% { opacity: 0; }
-      100% { opacity: 1; }
+      0% { opacity: 0; }
+      10% { opacity: 1; }  /* Muncul */
+      45% { opacity: 1; }  /* Tetap terlihat */
+      55% { opacity: 0; }  /* Mulai hilang */
+      100% { opacity: 0; } /* Hilang sepenuhnya */
     }
 
-    .overlay-gradient {
+    /* Gradasi hitam dari bawah ke atas */
+    .black-gradient {
       position: absolute;
       bottom: 0;
       width: 100%;
-      height: 60%;
-      background: linear-gradient(to top, rgba(0,0,0,0.97), rgba(0,0,0,0));
-      z-index: 2;
-    }
-
-    .text-content {
-      position: absolute;
-      bottom: 140px;
-      width: 100%;
-      text-align: center;
-      color: white;
-      z-index: 3;
-    }
-
-    .text-content h2 {
-      font-size: 22px;
-      margin-bottom: 8px;
-      font-weight: 400;
-    }
-
-    .text-content h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-/* Nama Pengantin */
-.bride-groom {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px; /* diperkecil agar nama lebih rapat */
-  margin-top: 40px;
-  width: 100%;
-  max-width: 600px; /* batasi lebar keseluruhan */
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-.bride-groom .name-left,
-.bride-groom .name-right {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-  color: #fff;
-  line-height: 1.2;
-  max-width: 70vw;
-  word-break: break-word;
-}
-
-.bride-groom .name-left {
-  text-align: right;
-}
-
-.bride-groom .name-right {
-  text-align: left;
-}
-
-.bride-groom .and {
-  font-family: 'Great Vibes', cursive;
-  font-size: 48px;
-  color: gold;
-  line-height: 1.2;
-}
-
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .countdown-item {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255,255,255,0.3);
-      border-radius: 12px;
-      padding: 10px 14px;
-      font-size: 18px;
-      font-weight: bold;
-      backdrop-filter: blur(5px);
-      min-width: 50px;
+      height: 50%; /* Tutup setengah layar bawah */
+      background: linear-gradient(to top, rgba(0,0,0,0.99), rgba(0,0,0,0)); /* Gradasi hitam ke transparan */
+      z-index: 2; /* Di atas slide */
     }
   </style>
 </head>
+
 <body>
 
-<!-- Hero Section dengan 2 Foto Berganti -->
-<section class="hero">
-  <!-- Foto pengantin 1 -->
-  <img src="dasar1.jpg" alt="Pengantin 1" />
-  <!-- Foto pengantin 2 -->
-  <img src="dasar2.jpg" alt="Pengantin 2" />
+  <!-- Bagian slideshow -->
+  <div class="slideshow">
 
-  <!-- Gradasi hitam di bawah -->
-  <div class="overlay-gradient"></div>
+    <!-- Gambar latar 1 -->
+    <div class="slide slide1"></div>
 
-<div class="text-content">
-  <h2>THE WEDDING OF</h2>
+    <!-- Gambar latar 2 -->
+    <div class="slide slide2"></div>
 
-  <div class="bride-groom">
-  <div class="name-left">
-    BAMBANG<br>IRSWAN
+    <!-- Efek gradasi hitam pekat di bagian bawah -->
+    <div class="black-gradient"></div>
+
   </div>
-  <div class="and">&</div>
-  <div class="name-right">
-    AYU<br>SEPTIANINGRUM
-  </div>
-</div>
-
-
-  <div class="countdown" id="countdown"></div>
-  <h2>07 OKTOBER 2025</h2>
-</div>
-
-
-
-<!-- Script Countdown -->
-<script>
-  // Target waktu acara: 7 Oktober 2025, pukul 08:00 pagi
-  const targetDate = new Date("2025-10-07T08:00:00").getTime();
-  const countdown = document.getElementById("countdown");
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance < 0) {
-      countdown.innerHTML = "Acara telah dimulai";
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdown.innerHTML = `
-      <div class="countdown-item">${days}<br><small>Hari</small></div>
-      <div class="countdown-item">${hours}<br><small>Jam</small></div>
-      <div class="countdown-item">${minutes}<br><small>Menit</small></div>
-      <div class="countdown-item">${seconds}<br><small>Detik</small></div>
-    `;
-  }
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
 
 </body>
 </html>
