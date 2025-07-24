@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Undangan Pernikahan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -76,37 +76,34 @@
       margin-bottom: 20px;
     }
 /* Nama Pengantin */
-.nama-pengantin {
+.hero-nama-pengantin {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+  justify-content: center;
+  padding-top: 40vh;
+  gap: 10px;
+  position: relative;
+  z-index: 10;
 }
 
-.nama-pria {
-  align-self: flex-end; /* posisi kanan */
-  text-align: right;
-  font-size: 28px;
-  font-weight: bold;
+.nama-pria, .nama-wanita {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 24px;
   color: white;
+  text-align: center;
   line-height: 1.2;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .and {
-  font-size: 64px;
   font-family: 'Great Vibes', cursive;
+  font-size: 64px;
   color: gold;
   line-height: 1;
-}
-
-.nama-wanita {
-  align-self: flex-start; /* posisi kiri */
-  text-align: left;
-  font-size: 28px;
-  font-weight: bold;
-  color: white;
-  line-height: 1.2;
+  margin: 10px 0;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
 }
 
     .countdown {
@@ -144,11 +141,12 @@
   <h2>THE WEDDING OF</h2>
 
   <!-- Nama pengantin -->
-<div class="nama-pengantin">
+<div class="hero-nama-pengantin">
   <div class="nama-pria">BAMBANG<br>IRSWAN</div>
   <div class="and">&</div>
   <div class="nama-wanita">AYU<br>SEPTIANINGRUM</div>
 </div>
+
 
   <div class="countdown" id="countdown"></div>
   <h2>07 OKTOBER 2025</h2>
