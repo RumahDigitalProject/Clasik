@@ -176,14 +176,26 @@
   opacity: 1;
 }
     /* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
-.bg-section-khusus {
-  background-image: url('background-khusus.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: top center;
-  background-color: #fff;
+.section-dengan-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  z-index: 0;
+  object-fit: contain;
+}
+
+.isi-section {
+  position: relative;
+  z-index: 1;
   padding: 80px 20px;
-  margin-bottom: 80px;
+  background-color: rgba(255,255,255,0.8); /* opsional: agar teks tetap terbaca */
 }
     /* ==== PENYESUAIAN BISMILLAH ==== */
 .bismillah {
@@ -456,7 +468,8 @@
 </div>
 
 <!-- BAGIAN DENGAN BACKGROUND KHUSUS -->
-<div class="bg-section-khusus">
+<div class="section-dengan-bg">
+  <img src="background-khusus.jpg" alt="Background" class="bg-image">
 
   <!-- === BISMILLAH ARAB === -->
   <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
