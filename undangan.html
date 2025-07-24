@@ -163,7 +163,7 @@
   transition: opacity 1s ease-in-out;
   text-align: center;
   font-family: Georgia, serif;
-  font-size: 20px;
+  font-size: 14px;
   font-style: italic;
   line-height: 1.6;
   color: #333;
@@ -230,7 +230,7 @@
   </div>
 </div>
 
-  // Script pergantian slide otomatis //
+  !-- Script pergantian slide otomatis -->
 <script>
   const slides = document.querySelectorAll('.ayat-slide');
   let currentSlide = 0;
@@ -243,9 +243,8 @@
 
     slides[currentSlide].classList.add('active');
   }, 7000); // ganti setiap 7 detik
-
-
-  // Script Musik dan Countdown //
+  
+  // Script Musik dan Countdown
     const audio = document.getElementById('bg-music');
 
     window.addEventListener('load', () => {
