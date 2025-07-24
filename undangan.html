@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Undangan Pernikahan</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<style>
+/* =========================
+   GLOBAL RESET & FONTS
+========================= */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: url('begroundhalaman1.webp') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  text-align: center;
+  min-height: 100vh;
+}
+h1, h2, h3, h4 {
+  margin: 0 0 20px;
+}
+p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+.container {
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+/* =========================
+   HERO SECTION & NAMA
+========================= */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+.nama-pengantin {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  font-weight: normal;
+  color: #8e5c5c;
+  margin-top: 20px;
+}
+.nama-pengantin span {
+  font-family: 'Allura', cursive;
+  margin: 0 10px;
+  font-size: 2rem;
+  color: #555;
+}
+.scroll-down {
+  position: absolute;
+  bottom: 100px;
+  font-size: 24px;
+  animation: bounce 1s infinite;
+  cursor: pointer;
+  color: #aa4a44;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.and-symbol {
+  font-size: 60px;
+  font-weight: bold;
+  color: #D4AF37;
+  margin: 30px 0;
+  font-family: 'Great Vibes', cursive;
+}
+.profil-pengantin h2 {
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.profil-pengantin p {
+  margin-top: 0;
+  line-height: 1.4;
+}
+
+/* =========================
+   FOTO PENGANTIN
+========================= */
+.foto-pengantin {
+  width: 250px;
+  height: 360px;
+  border-radius: 30%/15%;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin: 30px auto;
+}
+.foto-pengantin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================
+   GALERI FOTO
+========================= */
+.galeri {
+  padding: 50px 30px;
+  background-color: #fefefe;
+  text-align: center;
+}
+
+.galeri h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #aa4a44;
+}
+
+.foto-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+/* Ukuran acak agar tampil bervariasi dan estetik */
+.foto-wrapper img {
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateX(0);
+  transition: all 0.8s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.foto-wrapper img:nth-child(1) { width: 90%; height: 220px; }
+.foto-wrapper img:nth-child(2) { width: 80%; height: 200px; }
+.foto-wrapper img:nth-child(3) { width: 100%; height: 240px; }
+.foto-wrapper img:nth-child(4) { width: 85%; height: 210px; }
+.foto-wrapper img:nth-child(5) { width: 95%; height: 230px; }
+.foto-wrapper img:nth-child(6) { width: 75%; height: 190px; }
+
+/* Animasi masuk kiri dan kanan */
+.foto-wrapper img.show-left {
+  opacity: 1;
+  animation: masukKiri 0.8s forwards;
+}
+.foto-wrapper img.show-right {
+  opacity: 1;
+  animation: masukKanan 0.8s forwards;
+}
+
+@keyframes masukKiri {
+  from { transform: translateX(-80px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+@keyframes masukKanan {
+  from { transform: translateX(80px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* Responsive: jadi 2 kolom di HP */
+@media (max-width: 768px) {
+  .foto-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   BUNGA ANIMASI
+========================= */
+.bunga-animasi {
+  position: absolute;
+  width: 60px;
+  opacity: 0.7;
+  animation: melayang 6s ease-in-out infinite;
+  z-index: 0;
+}
+@keyframes melayang {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+  50% { transform: translateY(-15px) rotate(10deg); opacity: 1; }
+  100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+}
+.flower {
+  position: absolute;
+  width: 80px;
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+.flower.top {
+  top: 0;
+  left: 0;
+  transform: rotate(-15deg);
+}
+.flower.bottom {
+  bottom: 0;
+  right: 0;
+  transform: rotate(15deg);
+}
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* =========================
+   BACKGROUND KHUSUS
+========================= */
+.background-bagian-khusus,
+.background-bagian-khusus-penutup {
+  background: url('backgroundasli.webp') no-repeat center center;
+  background-size: cover;
+  padding: 40px 20px;
+}
+.background-bagian-khusus-penutup {
+  padding: 80px 30px;
+}
+
+/* =========================
+   KOTAK STYLING
+========================= */
+.outer-container,
+.kotak-luar {
+  background-color: #7B9DBA;
+  padding: 60px 20px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.inner-box,
+.kotak-dalam {
+  background-image: url('begroundhalaman1.webp');
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  padding: 40px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   COUNTDOWN STYLING
+========================= */
+.hexagon-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.countbox {
+  position: relative;
+  width: 120px;
+  height: 75px;
+  background: #fff8e7;
+  color: #b38e5d;
+  text-align: center;
+  line-height: 55px;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  clip-path: polygon(
+    50% 0%,
+    93% 25%,
+    93% 75%,
+    50% 100%,
+    7% 75%,
+    7% 25%
+  );
+}
+.countbox span {
+  display: block;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+.countbox div {
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+/* =========================
+   MAP STYLING
+========================= */
+.map-oval {
+  width: 300px;
+  height: 200px;
+  border-radius: 50% / 30%;
+  overflow: hidden;
+  margin: 40px auto;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+}
+.map-oval iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* =========================
+   KADO / REKENING
+========================= */
+.rekening-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #888;
+}
+  </style>
+</head>
+<body>
+<!-- Bagian awal fullscreen -->
+<section class="background-bagian-khusus hero-section" style="
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  text-align: center;
+">
+<h1 class="judul" data-aos="fade-down" data-aos-delay="0" style="
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+  ">
+    The Wedding of
+  </h1>
+<!-- Foto pengantin -->
+<div class="foto-pengantin" data-aos="zoom-in" data-aos-delay="300" style="
+    width: 260px;
+    height: 340px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    margin-bottom: 30px;
+  ">
+<img alt="Foto Pengantin" src="backround_compressed.webp" style="width: 100%; height: 100%; object-fit: cover;"/>
+</div>
+<!-- Nama Pengantin -->
+<h2 class="nama-pengantin" data-aos="fade-up" data-aos-delay="600" style="
+    font-family: 'Allura', cursive;
+    font-size: 2.5rem;
+    color: #8A4A44;
+    font-weight: 400;
+  ">
+    Raka <span style="color: #444;">&amp;</span> Dinda
+  </h2>
+<!-- Tombol Scroll Down -->
+<div class="scroll-down" data-aos="fade-up" data-aos-delay="900" onclick="document.getElementById('isi-undangan').scrollIntoView({ behavior: 'smooth' });" style="
+    font-size: 2rem;
+    margin-top: 30px;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+  ">
+    ⌄
+  </div>
+</section>
+<!-- BAGIAN ISI UNDANGAN DENGAN BACKGROUND MELENGKUNG & ANIMASI BUNGA -->
+<section id="isi-undangan" style="position: relative; background-color: #7B9DBA; overflow: hidden; padding: 80px 20px; display: flex; justify-content: center; border-radius: 40px;">
+<!-- BUNGA ANIMASI - KANAN ATAS -->
+<img alt="bunga atas" class="bunga-animasi" src="bungakanan.webp" style="
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 190px;
+    animation: melayang 6s ease-in-out infinite;
+    z-index: 0;
+  "/>
+<!-- BUNGA ANIMASI - KIRI BAWAH -->
+<img alt="bunga bawah" class="bunga-animasi" src="bungakanan.webp" style="
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 190px;
+    animation: melayang 8s ease-in-out infinite;
+    z-index: 0;
+  "/>
+<!-- KOTAK DALAM -->
+<div style="
+    background-image: url('begroundhalaman1.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 24px;
+    max-width: 700px;
+    width: 100%;
+    padding: 50px 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  ">
+<p class="text-isi" data-aos="zoom-out" data-aos-duration="1000" data-aos-once="false" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #333;">
+      “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri...”
+      <br/><strong>(QS. Ar-Rum: 21)</strong>
+</p>
+</div>
+</section>
+<p class="bismillah" data-aos="fade-right">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+<p class="salam" data-aos="zoom-in">Assalamu'alaikum Wr. Wb</p>
+<p class="text-isi" data-aos="fade-right" data-aos-duration="1000" data-aos-once="false">
+        Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan kami.
+      </p>
+
+<!-- Profil Pengantin -->
+<div class="container profil-pengantin">
+<div class="foto-pengantin" data-aos="flip-left">
+<img alt="Raka Pradana" src="pengantin1.webp"/>
+</div>
+<h2 data-aos="flip-right">Raka Pradana</h2>
+<p data-aos="slide-up">Putra dari Bapak Ahmad &amp; Ibu Siti</p>
+<!-- Simbol & di tengah -->
+<div class="and-symbol" data-aos="slide-down">&amp;</div>
+<div class="foto-pengantin" data-aos="slide-left">
+<img alt="Dinda Maharani" src="pengantin2.webp"/>
+</div>
+<h2 data-aos="slide-right">Dinda Maharani</h2>
+<p data-aos="fade-up">Putri dari Bapak Bambang &amp; Ibu Rukmini</p>
+</div>
+<!-- Tanggal Acara dengan 2 Layer Background -->
+<div class="outer-container">
+<!-- BUNGA ANIMASI - KANAN ATAS -->
+<img alt="bunga atas" class="bunga-animasi" src="bungakanan.webp" style="
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 190px;
+    animation: melayang 6s ease-in-out infinite;
+    z-index: 0;
+  "/>
+<!-- BUNGA ANIMASI - KIRI BAWAH -->
+<img alt="bunga bawah" class="bunga-animasi" src="bungakanan.webp" style="
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 190px;
+    animation: melayang 8s ease-in-out infinite;
+    z-index: 0;
+  "/>
+<!-- Kotak Dalam -->
+<div class="inner-box zoom-in" data-aos="zoom-in" data-aos-duration="1000" data-aos-once="false">
+<h2 style="
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
+      font-size: 2.5rem;
+      color: #aa4a44;
+    ">
+      Save the Date
+    </h2>
+<p style="
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #444;
+    ">
+      Dengan penuh suka cita, kami mengundang Anda untuk hadir dalam momen bahagia kami.
+    </p>
+<!-- Akad Nikah -->
+<div style="margin-top: 40px;">
+<h2 style="
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        color: #aa4a44;
+        font-weight: bold;
+      ">
+        Akad Nikah
+      </h2>
+<p style="font-weight: 600;">Minggu, 20 Oktober 2025</p>
+<p>Pukul 08.00 WIB - Selesai</p>
+<p>Ds. Kanigoro, Kec. Kanigoro, Blitar</p>
+</div>
+<!-- Resepsi -->
+<div style="margin-top: 40px;">
+<h2 style="
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        color: #aa4a44;
+        font-weight: bold;
+      ">
+        Resepsi
+      </h2>
+<p style="font-weight: 600;">Minggu, 20 Oktober 2025</p>
+<p>Pukul 11.00 WIB - Selesai</p>
+<p>Ds. Kanigoro, Kec. Kanigoro, Blitar</p>
+</div>
+</div>
+</div>
+<!-- BAGIAN COUNTDOWN & MAPS DENGAN BACKGROUND SVG LANCIP -->
+<div class="zoom-in" style="
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 50px auto 0 auto;
+">
+<!-- SVG bentuk lancip atas & bawah -->
+<svg preserveaspectratio="none" style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  " viewbox="0 0 200 700">
+<path d="M100,0 L200,40 V660 L100,700 L0,660 V40 Z" fill="#7B9DBA"></path>
+</svg>
+<!-- Konten Countdown dan Maps -->
+<div style="
+    position: relative;
+    z-index: 1;
+    padding: 60px 20px;
+    text-align: center;
+  ">
+<h3 style="font-family: 'Playfair Display', serif;">Menuju Hari Bahagia</h3>
+<div class="hexagon-container" data-aos="fade-up" data-aos-duration="1000" data-aos-once="false" id="countdown" style="margin-top: 20px;"></div>
+<!-- Lokasi Maps -->
+<div style="margin-top: 40px;">
+<h3 style="font-family: 'Playfair Display', serif;">Lokasi Acara</h3>
+<div style="
+        margin-top: 15px;
+        border-radius: 12px;
+        overflow: hidden;
+      ">
+<iframe allowfullscreen="" data-aos="fade-down" data-aos-duration="1000" data-aos-once="false" frameborder="0" height="250" loading="lazy" src="https://maps.google.com/maps?q=Ds.%20Kanigoro%20Blitar&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed" style="border:0;" width="100%">
+</iframe>
+</div>
+<div style="text-align: center; margin-top: 20px;">
+<a href="https://www.google.com/maps/place/Ds.+Kanigoro,+Blitar" style="
+          display: inline-block;
+          background-color: #aa4a44;
+          color: white;
+          padding: 10px 20px;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: bold;
+          font-family: 'Poppins', sans-serif;
+          transition: background-color 0.3s;
+        " target="_blank">
+          📍 Lihat Lokasi
+        </a>
+</div>
+</div>
+</div>
+</div>
+<!-- Kado Pernikahan -->
+<div class="kotak-luar" data-aos="fade-left" data-aos-duration="1000" data-aos-once="false">
+<!-- BUNGA ANIMASI - KANAN ATAS -->
+<img alt="bunga atas" class="bunga-animasi" src="bungakanan.webp" style="
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 190px;
+    animation: melayang 6s ease-in-out infinite;
+    z-index: 0;
+  "/>
+<!-- BUNGA ANIMASI - KIRI BAWAH -->
+<img alt="bunga bawah" class="bunga-animasi" src="bungakanan.webp" style="
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 190px;
+    animation: melayang 8s ease-in-out infinite;
+    z-index: 0;
+  "/>
+<div class="kotak-dalam">
+<h2 style="text-align: center; font-family: 'Playfair Display', serif;">Kado Pernikahan</h2>
+<p style="text-align: center;">Jika ingin memberikan hadiah digital, berikut rekening kami:</p>
+<div class="rekening-box">
+<p><strong>BCA - Raka Pratama</strong></p>
+<div style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+<span id="rekening">1234567890</span>
+<button onclick="salinRekening()">Salin</button>
+</div>
+<p id="alertSalin" style="
+        display: none;
+        color: green;
+        font-size: 0.9rem;
+      ">Disalin!</p>
+</div>
+</div>
+</div>
+<!-- Galeri Foto -->
+<div class="galeri" data-aos="fade-left" data-aos-duration="1000" data-aos-once="false">
+<h2>Galeri Kami</h2>
+<div class="foto-wrapper">
+<img alt="Galeri 1" data-aos="slide-left" data-aos-duration="1000" data-aos-once="false" src="pengantin1.webp"/>
+<img alt="Galeri 2" data-aos="flip-right" data-aos-duration="1000" data-aos-once="false" src="pengantin2.webp"/>
+<img alt="Galeri 3" data-aos="fade-left" data-aos-duration="1000" data-aos-once="false" src="foto3.webp"/>
+<img alt="Galeri 4" data-aos="fade-left" data-aos-duration="1000" data-aos-once="false" src="foto4.webp"/>
+<img alt="Galeri 5" data-aos="slide-down" data-aos-duration="1000" data-aos-once="false" src="foto5.webp"/>
+<img alt="Galeri 6" data-aos="zoom-out" data-aos-duration="1000" data-aos-once="false" src="foto6.webp"/>
+</div>
+</div>
+<!-- Penutup -->
+<!-- Bagian awal dengan background khusus -->
+<div class="background-bagian-khusus-penutup">
+<div class="penutup" data-aos="fade-right">
+<h2>Terima Kasih</h2>
+<p>
+      Kehadiran dan doa restu Anda sangat berarti bagi kami.
+      Wassalamu’alaikum Warahmatullahi Wabarakatuh.
+    </p>
+</div>
+<!-- Footer -->
+<footer>
+<p>© 2025 Undangan ini dibuat oleh <strong>Ruang Digital</strong></p>
+</footer>
+<!-- Script AOS & Countdown -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: false });
+
+  function salinRekening() {
+    navigator.clipboard.writeText(document.getElementById("rekening").innerText);
+    const alert = document.getElementById("alertSalin");
+    alert.style.display = "block";
+    setTimeout(() => alert.style.display = "none", 2000);
+  }
+
+  const targetDate = new Date(2025, 9, 20, 10, 0, 0); // 20 Oktober 2025, pukul 10:00
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    if (diff <= 0) return;
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    document.getElementById("countdown").innerHTML = `
+      <div class="countbox"><span>${d}</span><div>Hari</div></div>
+      <div class="countbox"><span>${h}</span><div>Jam</div></div>
+      <div class="countbox"><span>${m}</span><div>Menit</div></div>
+      <div class="countbox"><span>${s}</span><div>Detik</div></div>
+    `;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Animasi galeri masuk dari kiri/kanan
+  document.addEventListener("DOMContentLoaded", () => {
+    const galeriImages = document.querySelectorAll('.foto-wrapper img');
+
+    function animateOnScroll() {
+      const triggerBottom = window.innerHeight * 0.9;
+
+      galeriImages.forEach((img, index) => {
+        const imgTop = img.getBoundingClientRect().top;
+
+        if (imgTop < triggerBottom) {
+          if (!img.classList.contains('show-left') && !img.classList.contains('show-right')) {
+            if (index % 2 === 0) {
+              img.classList.add('show-left');
+            } else {
+              img.classList.add('show-right');
+            }
+          }
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Trigger pertama saat load
+  });
+</script>
+</div></body>
+</html>
