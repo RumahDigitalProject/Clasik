@@ -196,8 +196,38 @@
     </div>
   </div>
 
-  <!-- Script Hitung Mundur -->
+  <!-- lagu -->
+  <audio id="bg-music" src="lagu.mp3" autoplay loop></audio>
+
+  // Script lagu
   <script>
+  const audio = document.getElementById('bg-music');
+
+  // Mainkan musik saat halaman selesai dimuat
+  window.addEventListener('load', () => {
+    audio.play().catch((err) => {
+      console.warn("Autoplay gagal, browser butuh interaksi pengguna.", err);
+    });
+  });
+
+  // Pause saat tab tidak aktif, play lagi saat aktif
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+
+  // Jika berpindah jendela atau minimize
+  window.addEventListener('blur', () => {
+    audio.pause();
+  });
+  window.addEventListener('focus', () => {
+    audio.play();
+  });
+
+  // Script Hitung Mundur 
     const targetDate = new Date("2025-10-07T08:00:00").getTime();
 
     setInterval(() => {
