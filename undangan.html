@@ -67,12 +67,12 @@
   width: 100%;
   z-index: 2;
   background: linear-gradient(to top,
-    rgba(0, 0, 0, 1) 0%,      /* Full hitam di paling bawah */
-    rgba(0, 0, 0, 0.9) 20%,   /* Sedikit lebih terang */
-    rgba(0, 0, 0, 0.6) 35%,   /* Semakin transparan */
-    rgba(0, 0, 0, 0.3) 45%,   /* Mendekati transparan */
-    rgba(0, 0, 0, 0) 60%      /* Transparan penuh di atas */
-  );
+  rgba(0, 0, 0, 1) 0%,     /* Hitam pekat dari bawah */
+  rgba(0, 0, 0, 1) 30%,    /* Masih pekat sampai 30% */
+  rgba(0, 0, 0, 0.7) 45%,  /* Mulai gradasi */
+  rgba(0, 0, 0, 0.3) 60%,  /* Semakin transparan */
+  rgba(0, 0, 0, 0) 75%     /* Transparan penuh di atas */
+);
   pointer-events: none; /* Biar tidak menghalangi klik */
 }
 
