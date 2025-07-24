@@ -10,25 +10,24 @@
       padding: 0;
       height: 100%;
       overflow: hidden;
-      font-family: sans-serif;
       background-color: black;
+      font-family: sans-serif;
     }
 
     video#bg-video {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      object-fit: cover;
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain; /* tampil penuh tanpa potong */
       z-index: -1;
+      background-color: black;
     }
 
     .overlay {
       position: absolute;
-      bottom: 60px;
+      bottom: 16%;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -36,26 +35,38 @@
     }
 
     .open-invitation {
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 14px 30px;
-      font-size: 1.1rem;
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 12px 26px;
+      font-size: 1rem;
       border-radius: 10px;
       text-decoration: none;
       color: #000;
       font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease;
     }
 
     .open-invitation:hover {
-      background-color: #fff;
+      background-color: white;
+    }
+
+    /* Responsif HP kecil */
+    @media screen and (max-width: 480px) {
+      .open-invitation {
+        font-size: 0.9rem;
+        padding: 10px 22px;
+      }
+
+      .overlay {
+        bottom: 18%; /* geser tombol sedikit ke atas */
+      }
     }
   </style>
 </head>
 <body>
 
   <video id="bg-video" autoplay muted loop playsinline>
-    <source src="begroundawal.mp4" type="video/mp4" />
+    <source src="begroundawal.mp4" type="video/mp4">
     Browser Anda tidak mendukung video background.
   </video>
 
