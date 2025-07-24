@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Undangan Pernikahan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -76,35 +76,31 @@
       margin-bottom: 20px;
     }
 /* Nama Pengantin */
-.hero-nama-pengantin {
+.bride-groom {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 70vh;
-  gap: 10px;
-  position: relative;
-  z-index: 10;
+  gap: 20px;
+  margin: 20px 0;
 }
 
-.nama-pria, .nama-wanita {
-  font-family: 'Playfair Display', serif;
+.bride-groom .name {
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  color: white;
+  font-size: 32px;
+  color: #fff;
   text-align: center;
   line-height: 1.2;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-.and {
+.bride-groom .and {
   font-family: 'Great Vibes', cursive;
-  font-size: 64px;
+  font-size: 60px;
   color: gold;
   line-height: 1;
-  margin: 10px 0;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  margin: 0 10px;
 }
+
 
     .countdown {
       display: flex;
@@ -141,16 +137,16 @@
   <h2>THE WEDDING OF</h2>
 
   <!-- Nama pengantin -->
-<div class="hero-nama-pengantin">
-  <div class="nama-pria">BAMBANG<br>IRSWAN</div>
-  <div class="and">&</div>
-  <div class="nama-wanita">AYU<br>SEPTIANINGRUM</div>
-</div>
-
+  <div class="bride-groom">
+    <div class="name">BAMBANG<br>IRSWAN</div>
+    <div class="and">&</div>
+    <div class="name">AYU<br>SEPTIANINGRUM</div>
+  </div>
 
   <div class="countdown" id="countdown"></div>
   <h2>07 OKTOBER 2025</h2>
 </div>
+
 
 
 <!-- Script Countdown -->
