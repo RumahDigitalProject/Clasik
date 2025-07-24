@@ -175,6 +175,18 @@
 .ayat-slide.active {
   opacity: 1;
 }
+    /* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
+.bg-undangan {
+  background: url('beground-khusus.jpg'); /* ganti ini dengan URL background kamu */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 20px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin: 0 auto 80px;
+  max-width: 960px;
+}
     /* ==== PENYESUAIAN BISMILLAH ==== */
 .bismillah {
   text-align: center;
@@ -445,37 +457,38 @@
   </div>
 </div>
 
+<!-- === BAGIAN DENGAN BACKGROUND KHUSUS === -->
+<div class="bg-undangan">
   <!-- === BISMILLAH ARAB === -->
-<div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+  <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
-<!-- === SALAM DAN KALIMAT UNDANGAN === -->
-<div class="salam-undangan">
-  Assalamu'alaikum Wr. Wb.<br>
-  Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
-  untuk menghadiri acara pernikahan kami.
+  <!-- === SALAM DAN KALIMAT UNDANGAN === -->
+  <div class="salam-undangan">
+    Assalamu'alaikum Wr. Wb.<br>
+    Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
+    untuk menghadiri acara pernikahan kami.
+  </div>
+
+  <!-- Bagian profil pengantin -->
+  <div class="profil">
+    <!-- Pengantin Laki-laki -->
+    <div class="pengantin">
+      <img src="pengantinlaki.jpg" alt="Pengantin Laki-laki" class="foto">
+      <h2 class="nama-pengantin">Bambang<br>Irswan</h2>
+      <p class="orang-tua">Putra dari Bapak Sukirno & Ibu Sulastri</p>
+    </div>
+
+    <!-- Simbol & -->
+    <div class="and-symbol">&</div>
+
+    <!-- Pengantin Perempuan -->
+    <div class="pengantin">
+      <img src="pengantinwanita.jpg" alt="Pengantin Perempuan" class="foto">
+      <h2 class="nama-pengantin">Ayu<br>Kusumaningrum</h2>
+      <p class="orang-tua">Putri dari Bapak Wiranto & Ibu Sumiati</p>
+    </div>
+  </div>
 </div>
-
-
-<!-- Bagian profil pengantin -->
-<div class="profil">
-  <!-- Pengantin Laki-laki -->
-  <div class="pengantin">
-    <img src="pengantinlaki.jpg" alt="Pengantin Laki-laki" class="foto">
-    <h2 class="nama-pengantin">Bambang<br>Irswan</h2>
-    <p class="orang-tua">Putra dari Bapak Sukirno & Ibu Sulastri</p>
-  </div>
-
-  <!-- Simbol & -->
-  <div class="and-symbol">&</div>
-
-  <!-- Pengantin Perempuan -->
-  <div class="pengantin">
-    <img src="pengantinwanita.jpg" alt="Pengantin Perempuan" class="foto">
-    <h2 class="nama-pengantin">Ayu<br>Kusumaningrum</h2>
-    <p class="orang-tua">Putri dari Bapak Wiranto & Ibu Sumiati</p>
-  </div>
-</div>
-  </div>
 </section>
 
 <!-- Section Acara -->
