@@ -19,25 +19,13 @@
       background-color: black;
     }
 
-    /* Halaman Pembuka */
-    #pembuka {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    body {
       background: url('pembuka.webp') no-repeat center center;
       background-size: contain;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
       animation: fadeIn 2.5s ease-in-out forwards;
-      z-index: 2;
-      flex-direction: column;
     }
 
-    /* Tombol Buka Undangan */
-    .btn-buka {
+.btn-buka {
   position: absolute;
   bottom: 120px;
   left: 50%;
@@ -60,24 +48,9 @@
   background-color: #fff;
   transform: translateX(-50%) scale(1.03);
   box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    }
+}
 
-    /* Halaman Konten Undangan */
-    #undangan {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, #fff, #f7f7f7);
-      padding: 40px 20px;
-      display: none;
-      overflow-y: auto;
-      z-index: 1;
-      animation: undanganMasuk 1.5s ease-out forwards;
-    }
-
-    /* Animasi */
+    /* ANIMASI */
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
@@ -86,50 +59,28 @@
     @keyframes slideUp {
       from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateX(-50%) translateY(30px);
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(-50%) translateY(0);
       }
     }
 
     @keyframes pulse {
       0%, 100% {
-        transform: scale(1);
+        transform: translateX(-50%) scale(1);
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
       }
       50% {
-        transform: scale(1.07);
+        transform: translateX(-50%) scale(1.07);
         box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-      }
-    }
-
-    @keyframes zoomOutFlip {
-      0% {
-        transform: scale(1) rotateX(0);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(0.5) rotateX(90deg);
-        opacity: 0;
-      }
-    }
-
-    @keyframes undanganMasuk {
-      0% {
-        transform: scale(0.8) translateY(30px);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1) translateY(0);
-        opacity: 1;
       }
     }
 
     @media (max-height: 700px) {
       .btn-buka {
-        margin-bottom: 30px;
+        bottom: 15px;
         padding: 14px 28px;
         font-size: 16px;
       }
@@ -138,33 +89,7 @@
 </head>
 <body>
 
-  <!-- Halaman Pembuka -->
-  <div id="pembuka">
-    <a href="#" class="btn-buka" onclick="bukaUndangan()">Buka Undangan</a>
-  </div>
-
-  <!-- Halaman Konten Undangan (Sementara kosong, bisa kamu isi) -->
-  <div id="undangan.html">
-    <h1 style="text-align:center; font-family: 'Great Vibes', cursive; font-size: 2.2em;">Raka & Dinda</h1>
-    <p style="text-align:center;">Kami mengundang Anda untuk hadir dalam pernikahan kami</p>
-    <!-- Tambahkan konten lainnya di sini -->
-  </div>
-
-  <script>
-    function bukaUndangan() {
-      const pembuka = document.getElementById('pembuka');
-      const undangan = document.getElementById('undangan');
-
-      // Tambahkan animasi keluar ke halaman pembuka
-      pembuka.style.animation = 'zoomOutFlip 0.8s ease forwards';
-
-      // Setelah animasi selesai, sembunyikan halaman pembuka dan tampilkan halaman undangan
-      setTimeout(() => {
-        pembuka.style.display = 'none';
-        undangan.style.display = 'block';
-      }, 800);
-    }
-  </script>
+  <a href="undangan.html" class="btn-buka">Buka Undangan</a>
 
 </body>
 </html>
