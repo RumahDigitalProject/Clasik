@@ -75,6 +75,28 @@
       font-size: 42px;
       margin-bottom: 20px;
     }
+    .bride-groom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.bride-groom .name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.bride-groom .and {
+  font-size: 32px;
+  font-weight: bold;
+  color: gold;
+  line-height: 1;
+}
 
     .countdown {
       display: flex;
@@ -108,13 +130,21 @@
   <div class="overlay-gradient"></div>
 
   <!-- Teks Utama -->
-  <div class="text-content">
-    <h2>THE WEDDING OF</h2>
-    <h1>Bambang Irswan & Ayu Septianingrum</h1>
-    <div class="countdown" id="countdown"></div>
-    <h2>07 OKTOBER 2025</h2>
+<div class="text-content">
+  <h2>THE WEDDING OF</h2>
+
+  <!-- Nama pengantin dua baris -->
+  <div class="bride-groom">
+    <div class="name">Bambang Irswan</div>
+    <div class="and">&</div>
+    <div class="name">Ayu Septianingrum</div>
   </div>
-</section>
+
+  <!-- Hitung mundur -->
+  <div class="countdown" id="countdown"></div>
+  <h2>07 OKTOBER 2025</h2>
+</div>
+
 
 <!-- Script Countdown -->
 <script>
