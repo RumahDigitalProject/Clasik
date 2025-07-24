@@ -272,6 +272,46 @@
 #acara .box-acara p {
   font-family: Georgia, serif;
 }
+
+    /*GALERY*/
+.galeri-section {
+  padding: 60px 20px;
+  background-color: #3b0a0a; /* warna latar keseluruhan */
+  text-align: center;
+}
+
+.galeri-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 40px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.galeri-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.galeri-item {
+  overflow: hidden;
+  border-radius: 20px;
+  background: white;
+  padding: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.galeri-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+}
+
+.galeri-item.large {
+  grid-column: span 2;
+}
+
   </style>
 </head>
 
@@ -393,81 +433,22 @@
 </section>
 
 <!-- Galeri -->
-<section id="galeri" class="py-12 bg-[#fefaf6] scroll-mt-16">
-  <div class="text-center mb-8">
-    <h2 class="text-3xl font-greatVibes text-pink-600">Galeri</h2>
-  </div>
-
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 px-4 max-w-6xl mx-auto">
-    <!-- Foto 1 Besar -->
-    <div class="col-span-2 row-span-2">
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-        <img src="galeri1.jpg" alt="Foto 1" class="w-full h-full object-cover">
-      </div>
+<section class="galeri-section">
+  <h2 class="galeri-title">Galeri</h2>
+  <div class="galeri-grid">
+    <div class="galeri-item large">
+      <img src="galeri1.jpg" alt="Galeri Foto 1">
     </div>
-
-    <!-- Foto 2 -->
-    <div class="h-48">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
-        <img src="galeri2.jpg" alt="Foto 2" class="w-full h-full object-cover">
-      </div>
+    <div class="galeri-item small">
+      <img src="galeri2.jpg" alt="Galeri Foto 2">
     </div>
-
-    <!-- Foto 3 -->
-    <div class="h-48">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
-        <img src="galeri3.jpg" alt="Foto 3" class="w-full h-full object-cover">
-      </div>
+    <div class="galeri-item small">
+      <img src="galeri3.jpg" alt="Galeri Foto 3">
     </div>
-
-    <!-- Foto 4 -->
-    <div class="h-48">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
-        <img src="galeri4.jpg" alt="Foto 4" class="w-full h-full object-cover">
-      </div>
+    <div class="galeri-item large">
+      <img src="galeri4.jpg" alt="Galeri Foto 4">
     </div>
-
-    <!-- Foto 5 -->
-    <div class="h-48">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
-        <img src="galeri5.jpg" alt="Foto 5" class="w-full h-full object-cover">
-      </div>
-    </div>
-
-    <!-- Foto 6 (lebar penuh) -->
-    <div class="col-span-2 h-60">
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden h-full">
-        <img src="galeri6.jpg" alt="Foto 6" class="w-full h-full object-cover">
-      </div>
-    </div>
-
-    <!-- Foto 7 -->
-    <div class="h-48">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
-        <img src="galeri7.jpg" alt="Foto 7" class="w-full h-full object-cover">
-      </div>
-    </div>
-
-    <!-- Foto 8 -->
-    <div class="h-48">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
-        <img src="galeri8.jpg" alt="Foto 8" class="w-full h-full object-cover">
-      </div>
-    </div>
-
-    <!-- Foto 9 -->
-    <div class="h-48">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
-        <img src="galeri9.jpg" alt="Foto 9" class="w-full h-full object-cover">
-      </div>
-    </div>
-
-    <!-- Foto 10 -->
-    <div class="h-48">
-      <div class="bg-white rounded-xl shadow-md overflow-hidden h-full">
-        <img src="galeri10.jpg" alt="Foto 10" class="w-full h-full object-cover">
-      </div>
-    </div>
+    <!-- Tambah lagi sesuai kebutuhan -->
   </div>
 </section>
 
