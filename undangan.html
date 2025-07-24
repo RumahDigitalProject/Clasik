@@ -276,14 +276,14 @@
     /*GALERY*/
 .galeri-section {
   padding: 60px 20px;
-  background-color: #3b0a0a; /* warna latar keseluruhan */
+  background-color: #fefaf6;
   text-align: center;
 }
 
 .galeri-title {
   font-family: 'Great Vibes', cursive;
   font-size: 40px;
-  color: white;
+  color: #c71585; /* pink cantik */
   margin-bottom: 30px;
 }
 
@@ -291,21 +291,28 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .galeri-item {
-  overflow: hidden;
-  border-radius: 20px;
   background: white;
-  padding: 6px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .galeri-item img {
   width: 100%;
   height: auto;
-  border-radius: 15px;
   display: block;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.galeri-item img:hover {
+  transform: scale(1.03);
 }
 
 .galeri-item.large {
@@ -436,31 +443,42 @@
 <section class="galeri-section">
   <h2 class="galeri-title">Galeri</h2>
   <div class="galeri-grid">
+    <!-- Foto 1 Besar -->
     <div class="galeri-item large">
       <img src="galeri1.jpg" alt="Galeri Foto 1">
     </div>
+
+    <!-- Foto 2 & 3 -->
     <div class="galeri-item small">
       <img src="galeri2.jpg" alt="Galeri Foto 2">
     </div>
     <div class="galeri-item small">
       <img src="galeri3.jpg" alt="Galeri Foto 3">
     </div>
+
+    <!-- Foto 4 Besar -->
     <div class="galeri-item large">
       <img src="galeri4.jpg" alt="Galeri Foto 4">
     </div>
+
+    <!-- Foto 5 & 6 -->
     <div class="galeri-item small">
       <img src="galeri5.jpg" alt="Galeri Foto 5">
     </div>
     <div class="galeri-item small">
       <img src="galeri6.jpg" alt="Galeri Foto 6">
-    <div class="galeri-item large">
+    </div>
+
+    <!-- Foto 7 & 8 -->
+    <div class="galeri-item small">
       <img src="galeri7.jpg" alt="Galeri Foto 7">
     </div>
     <div class="galeri-item small">
       <img src="galeri8.jpg" alt="Galeri Foto 8">
-    <!-- Tambah lagi sesuai kebutuhan -->
+    </div>
   </div>
 </section>
+
 
 
 
