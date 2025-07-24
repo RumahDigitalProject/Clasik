@@ -175,33 +175,42 @@
   opacity: 1;
 }
     
-/* PROFIL PENGANTIN */
-    .judul-undangan {
+/* MEMASTIKAN POSISI FOTO & ISI PENGANTIN DI TENGAH SECARA SIMETRIS */
+.profil {
+  display: flex;
+  justify-content: center; /* Tengah horizontal */
+  align-items: center;
+  flex-wrap: wrap; /* Responsif di layar kecil */
+  gap: 40px;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-.bismillah-arab {
-  font-size: 28px;
-  font-family: 'Amiri', serif;
-  color: #444;
-  margin-bottom: 20px;
+/* Foto pengantin agar rata tengah & ukuran seragam */
+.foto {
+  display: block;
+  margin: 0 auto;
+  max-width: 160px;
+  border-radius: 50%;
+  border: 5px solid #ddd;
 }
 
-.salam {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #444;
+/* Nama pengantin agar tetap gaya cantik */
+.nama-pengantin {
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  margin-top: 10px;
+  color: #333;
+  line-height: 1.2;
 }
 
-.undangan-teks {
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #555;
+/* Simbol & agar benar-benar tengah */
+.and-symbol {
+  font-size: 32px;
+  font-family: 'Great Vibes', cursive;
+  margin: 0 20px;
+  color: #666;
 }
-
 
   </style>
 </head>
