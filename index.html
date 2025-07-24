@@ -4,56 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Undangan Pernikahan</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
-    body, html {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
       height: 100%;
       overflow: hidden;
+      font-family: sans-serif;
     }
 
     #bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: contain;
-  z-index: -1;
-  background-color: black; /* agar area kosong berwarna hitam */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      object-fit: cover;
+      background-color: black;
     }
 
     .overlay {
-      position: relative;
-      z-index: 1;
-      height: 100%;
+      position: absolute;
+      bottom: 60px;
+      width: 100%;
       display: flex;
-      align-items: center;
       justify-content: center;
+      z-index: 1;
     }
 
     .open-invitation {
-      background-color: rgba(255, 255, 255, 0.8);
-      padding: 14px 28px;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 14px 30px;
+      font-size: 1.1rem;
+      border-radius: 10px;
       text-decoration: none;
-      color: #333;
+      color: #000;
       font-weight: bold;
-      transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
     }
 
     .open-invitation:hover {
-      background-color: rgba(255, 255, 255, 1);
+      background-color: #fff;
     }
   </style>
 </head>
 <body>
   <video autoplay muted loop playsinline id="bg-video">
     <source src="begroundawal.mp4" type="video/mp4">
-    Browser kamu tidak mendukung video latar belakang.
+    Browser tidak mendukung video.
   </video>
 
   <div class="overlay">
