@@ -182,22 +182,29 @@
   padding: 80px 20px;
   margin-bottom: 80px;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* agar tinggi cukup untuk video */
+  background-color: #000; /* bisa diganti sesuai warna dasar */
 }
 
 .bg-video-khusus video {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 100%;
-  object-fit: cover;
+  width: auto;
+  object-fit: contain; /* agar tidak zoom */
   z-index: 0;
 }
 
 .bg-video-khusus .konten {
   position: relative;
   z-index: 2;
-  color: #fff; /* atau hitam, tergantung video kamu */
+  color: #fff;
+  text-align: center;
 
 }
     /* ==== PENYESUAIAN BISMILLAH ==== */
