@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
   <title>Undangan</title>
 
   <style>
@@ -173,6 +174,34 @@
 .ayat-slide.active {
   opacity: 1;
 }
+    
+/* PROFIL PENGANTIN */
+    .judul-undangan {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bismillah-arab {
+  font-size: 28px;
+  font-family: 'Amiri', serif;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.salam {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.undangan-teks {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
 
   </style>
 </head>
@@ -230,6 +259,40 @@
     — QS. Al-Baqarah: 187
   </div>
 </div>
+
+  <!-- Profil Pengantin -->
+  <section class="section-undangan">
+  <div class="container">
+    <div class="judul-undangan">
+      <p class="bismillah-arab">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+      <p class="salam">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
+      <p class="undangan-teks">Tanpa mengurangi rasa hormat,<br>
+        kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
+        untuk hadir di acara pernikahan kami:</p>
+    </div>
+
+    <!-- Bagian profil pengantin tetap seperti sebelumnya -->
+    <div class="profil">
+      <!-- Pengantin Laki-laki -->
+      <div class="pengantin">
+        <img src="pengantinlaki.jpg" alt="Pengantin Laki-laki" class="foto">
+        <h2 class="nama-pengantin">Bambang<br>Irswan</h2>
+        <p class="orang-tua">Putra dari Bapak Sukirno & Ibu Sulastri</p>
+      </div>
+
+      <!-- Simbol "&" di tengah -->
+      <div class="and-symbol">&</div>
+
+      <!-- Pengantin Perempuan -->
+      <div class="pengantin">
+        <img src="pengantinwanita.jpg" alt="Pengantin Perempuan" class="foto">
+        <h2 class="nama-pengantin">Ayu<br>Kusumaningrum</h2>
+        <p class="orang-tua">Putri dari Bapak Wiranto & Ibu Sumiati</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <!-- Script pergantian slide otomatis -->
 <script>
