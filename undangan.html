@@ -358,23 +358,27 @@
   border-top: 2px solid #e7a5bd;
 }
 
-.footer-content p {
+.footer-content {
   font-family: 'Inter', sans-serif;
   color: #5a4e4d;
   font-size: 13px;
+}
+
+.footer-content p {
   margin: 4px 0;
 }
 
-.footer-inline {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+.footer-row {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
 }
 
 .wa-icon-inline img {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   filter: grayscale(100%);
   opacity: 0.7;
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -559,15 +563,16 @@
   <!--Brand-->
 <footer class="footer-wedding">
   <div class="footer-content">
-    <p>Undangan oleh <strong>Rumah Digital</strong></p>
-    <p class="footer-inline">
-      © 2025
-      <a href="https://wa.me/628506889273" target="_blank" class="wa-icon-inline">
+    <p>Undangan oleh <strong>Rumah Digital Project</strong></p>
+    <div class="footer-row">
+      <span>© 2025</span>
+      <a href="https://wa.me/6285706889273" target="_blank" class="wa-icon-inline">
         <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
       </a>
-    </p>
+    </div>
   </div>
 </footer>
+
 
 
 
