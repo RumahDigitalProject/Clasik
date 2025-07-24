@@ -200,38 +200,49 @@
 /* MEMASTIKAN POSISI FOTO & ISI PENGANTIN DI TENGAH SECARA SIMETRIS */
 .profil {
   display: flex;
-  justify-content: center; /* Tengah horizontal */
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Responsif di layar kecil */
+  flex-wrap: wrap;
   gap: 40px;
   text-align: center;
   margin-bottom: 60px;
 }
 
-/* Foto pengantin agar rata tengah & ukuran seragam */
+/* FOTO PENGANTIN: SETENGAH BADAN + BINGKAI MODERN */
 .foto {
   display: block;
   margin: 0 auto;
-  max-width: 160px;
-  border-radius: 50%;
-  border: 5px solid #ddd;
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border: 4px solid #eee;
 }
 
-/* Nama pengantin agar tetap gaya cantik */
+/* NAMA PENGANTIN */
 .nama-pengantin {
   font-family: 'Great Vibes', cursive;
-  font-size: 26px;
-  margin-top: 10px;
+  font-size: 28px;
+  margin-top: 12px;
   color: #333;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
-/* Simbol & agar benar-benar tengah */
+/* NAMA ORANG TUA */
+.orang-tua {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* SIMBOL & DI TENGAH */
 .and-symbol {
-  font-size: 32px;
+  font-size: 36px;
   font-family: 'Great Vibes', cursive;
-  margin: 0 20px;
-  color: #666;
+  margin: 20px;
+  color: #888;
 }
 
   </style>
@@ -302,25 +313,25 @@
 </div>
 
 
-    <!-- Bagian profil pengantin tetap seperti sebelumnya -->
-    <div class="profil">
-      <!-- Pengantin Laki-laki -->
-      <div class="pengantin">
-        <img src="pengantinlaki.jpg" alt="Pengantin Laki-laki" class="foto">
-        <h2 class="nama-pengantin">Bambang<br>Irswan</h2>
-        <p class="orang-tua">Putra dari Bapak Sukirno & Ibu Sulastri</p>
-      </div>
+<!-- Bagian profil pengantin -->
+<div class="profil">
+  <!-- Pengantin Laki-laki -->
+  <div class="pengantin">
+    <img src="pengantinlaki.jpg" alt="Pengantin Laki-laki" class="foto">
+    <h2 class="nama-pengantin">Bambang<br>Irswan</h2>
+    <p class="orang-tua">Putra dari Bapak Sukirno & Ibu Sulastri</p>
+  </div>
 
-      <!-- Simbol "&" di tengah -->
-      <div class="and-symbol">&</div>
+  <!-- Simbol & -->
+  <div class="and-symbol">&</div>
 
-      <!-- Pengantin Perempuan -->
-      <div class="pengantin">
-        <img src="pengantinwanita.jpg" alt="Pengantin Perempuan" class="foto">
-        <h2 class="nama-pengantin">Ayu<br>Kusumaningrum</h2>
-        <p class="orang-tua">Putri dari Bapak Wiranto & Ibu Sumiati</p>
-      </div>
-    </div>
+  <!-- Pengantin Perempuan -->
+  <div class="pengantin">
+    <img src="pengantinwanita.jpg" alt="Pengantin Perempuan" class="foto">
+    <h2 class="nama-pengantin">Ayu<br>Kusumaningrum</h2>
+    <p class="orang-tua">Putri dari Bapak Wiranto & Ibu Sumiati</p>
+  </div>
+</div>
   </div>
 </section>
 
