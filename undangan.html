@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <title>Undangan</title>
 
   <style>
@@ -174,6 +175,27 @@
 .ayat-slide.active {
   opacity: 1;
 }
+    /* ==== PENYESUAIAN BISMILLAH ==== */
+.bismillah {
+  text-align: center;
+  font-size: 36px;
+  font-family: 'Scheherazade New', serif; /* Font Arab lebih indah */
+  margin-top: 80px;
+  margin-bottom: 30px;
+  direction: rtl; /* agar kaligrafi arab tampil natural */
+}
+
+/* ==== PENYESUAIAN SALAM DAN KALIMAT UNDANGAN ==== */
+.salam-undangan {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 60px;
+  padding: 0 24px; /* agar tidak mentok ke tepi */
+  line-height: 1.8;
+}
+
     
 /* MEMASTIKAN POSISI FOTO & ISI PENGANTIN DI TENGAH SECARA SIMETRIS */
 .profil {
@@ -269,16 +291,16 @@
   </div>
 </div>
 
-  <!-- Profil Pengantin -->
-  <section class="section-undangan">
-  <div class="container">
-    <div class="judul-undangan">
-      <p class="bismillah-arab">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
-      <p class="salam">Assalamu’alaikum Warahmatullahi Wabarakatuh</p>
-      <p class="undangan-teks">Tanpa mengurangi rasa hormat,<br>
-        kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
-        untuk hadir di acara pernikahan kami:</p>
-    </div>
+  <!-- === BISMILLAH ARAB === -->
+<div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+
+<!-- === SALAM DAN KALIMAT UNDANGAN === -->
+<div class="salam-undangan">
+  Assalamu'alaikum Warahmatullahi Wabarakatuh<br><br>
+  Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
+  untuk menghadiri acara pernikahan kami.
+</div>
+
 
     <!-- Bagian profil pengantin tetap seperti sebelumnya -->
     <div class="profil">
