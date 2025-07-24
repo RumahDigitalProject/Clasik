@@ -58,20 +58,19 @@
       100% { opacity: 0; } /* Hilang sepenuhnya */
     }
 
-    /* Gradasi hitam dari bawah ke atas */
 /* Overlay gradasi menyatu mulus */
 .black-overlay {
   position: absolute;
   bottom: 0;
-  height: 50vh; /* 50% tinggi layar */
+  height: 80vh; /* 50% tinggi layar */
   width: 100%;
   z-index: 2;
   background: linear-gradient(to top,
   rgba(0, 0, 0, 1) 0%,     /* Hitam pekat dari bawah */
   rgba(0, 0, 0, 1) 30%,    /* Masih pekat sampai 30% */
-  rgba(0, 0, 0, 0.7) 45%,  /* Mulai gradasi */
-  rgba(0, 0, 0, 0.3) 60%,  /* Semakin transparan */
-  rgba(0, 0, 0, 0) 75%     /* Transparan penuh di atas */
+  rgba(0, 0, 0, 0.7) 55%,  /* Mulai gradasi */
+  rgba(0, 0, 0, 0.3) 70%,  /* Semakin transparan */
+  rgba(0, 0, 0, 0) 85%     /* Transparan penuh di atas */
 );
   pointer-events: none; /* Biar tidak menghalangi klik */
 }
