@@ -77,29 +77,37 @@
     }
 /* Nama Pengantin */
 .bride-groom {
-  display: flex;
-  justify-content: center; /* Tengahin isi */
-  align-items: center;
-  gap: 20px; /* Jarak antar nama (ubah sesuai keinginan, default-nya 100px terlalu lebar) */
-  margin-top: 40px; /* Supaya posisi turun sedikit */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* diperkecil agar nama lebih rapat */
+  margin-top: 40px;
+  width: 100%;
+  max-width: 600px; /* batasi lebar keseluruhan */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.bride-groom .name-left,
+.bride-groom .name-right {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #fff;
+  line-height: 1.2;
+  max-width: 45%;
+  word-break: break-word;
 }
 
 .bride-groom .name-left {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-  color: #fff;
-  text-align: right; /* Rata kanan */
-  line-height: 1.2;
+  text-align: right;
 }
 
 .bride-groom .name-right {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-  color: #fff;
-  text-align: left; /* Rata kiri */
-  line-height: 1.2;
+  text-align: left;
 }
 
 .bride-groom .and {
