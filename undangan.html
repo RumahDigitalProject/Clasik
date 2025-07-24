@@ -78,29 +78,36 @@
 /* Nama Pengantin */
 .bride-groom {
   display: flex;
+  justify-content: center; /* Tengahin isi */
   align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin: 20px 0;
+  gap: 40px; /* Jarak antar nama (ubah sesuai keinginan, default-nya 100px terlalu lebar) */
+  margin-top: 40px; /* Supaya posisi turun sedikit */
 }
 
-.bride-groom .name {
+.bride-groom .name-left {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 32px;
   color: #fff;
-  text-align: center;
+  text-align: right; /* Rata kanan */
+  line-height: 1.2;
+}
+
+.bride-groom .name-right {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  color: #fff;
+  text-align: left; /* Rata kiri */
   line-height: 1.2;
 }
 
 .bride-groom .and {
   font-family: 'Great Vibes', cursive;
-  font-size: 60px;
+  font-size: 48px;
   color: gold;
   line-height: 1;
-  margin: 0 10px;
 }
-
 
     .countdown {
       display: flex;
@@ -136,12 +143,16 @@
 <div class="text-content">
   <h2>THE WEDDING OF</h2>
 
-  <!-- Nama pengantin -->
   <div class="bride-groom">
-    <div class="name">BAMBANG<br>IRSWAN</div>
-    <div class="and">&</div>
-    <div class="name">AYU<br>SEPTIANINGRUM</div>
+  <div class="name-left">
+    BAMBANG<br>IRSWAN
   </div>
+  <div class="and">&</div>
+  <div class="name-right">
+    AYU<br>SEPTIANINGRUM
+  </div>
+</div>
+
 
   <div class="countdown" id="countdown"></div>
   <h2>07 OKTOBER 2025</h2>
