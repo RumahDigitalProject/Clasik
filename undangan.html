@@ -176,35 +176,15 @@
   opacity: 1;
 }
     /* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
-.bg-video-khusus {
-  position: relative;
-  overflow: hidden;
+.bg-section-khusus {
+  background-image: url('background-khusus.jpg');
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-position: top center;
+  background-color: #fff;
   padding: 80px 20px;
-  margin-bottom: 80px;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* agar tinggi cukup untuk video */
-  background-color: #000; /* bisa diganti sesuai warna dasar */
-}
-
-.bg-video-khusus video {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
-  width: auto;
-  object-fit: contain; /* agar tidak zoom */
-  z-index: 0;
-}
-
-.bg-video-khusus .konten {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  text-align: center;
+  margin-bottom: 0px;
+  min-height: 100vh;
 
 }
     /* ==== PENYESUAIAN BISMILLAH ==== */
@@ -477,45 +457,38 @@
   </div>
 </div>
 
-<!-- BAGIAN DENGAN VIDEO BACKGROUND -->
-<div class="bg-video-khusus">
-  <video autoplay muted loop playsinline>
-    <source src="begroundawal.mp4" type="video/mp4">
-    Browser Anda tidak mendukung video tag.
-  </video>
+<!-- BAGIAN DENGAN BACKGROUND KHUSUS -->
+<div class="bg-section-khusus">
 
-  <div class="konten">
-    <!-- === BISMILLAH ARAB === -->
-    <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+  <!-- === BISMILLAH ARAB === -->
+  <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
-    <!-- === SALAM DAN KALIMAT UNDANGAN === -->
-    <div class="salam-undangan">
-      Assalamu'alaikum Wr. Wb.<br>
-      Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
-      untuk menghadiri acara pernikahan kami.
+  <!-- === SALAM DAN KALIMAT UNDANGAN === -->
+  <div class="salam-undangan">
+    Assalamu'alaikum Wr. Wb.<br>
+    Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i<br>
+    untuk menghadiri acara pernikahan kami.
+  </div>
+
+  <!-- === PROFIL PENGANTIN === -->
+  <div class="profil">
+    <!-- Pengantin pria -->
+    <div class="pengantin">
+      <img src="pengantinlaki.jpg" alt="Pengantin Laki-laki" class="foto">
+      <h2 class="nama-pengantin">Bambang<br>Irswan</h2>
+      <p class="orang-tua">Putra dari Bapak Sukirno & Ibu Sulastri</p>
     </div>
 
-    <!-- === PROFIL PENGANTIN === -->
-    <div class="profil">
-      <!-- Pengantin pria -->
-      <div class="pengantin">
-        <img src="pengantinlaki.jpg" alt="Pengantin Laki-laki" class="foto">
-        <h2 class="nama-pengantin">Bambang<br>Irswan</h2>
-        <p class="orang-tua">Putra dari Bapak Sukirno & Ibu Sulastri</p>
-      </div>
+    <div class="and-symbol">&</div>
 
-      <div class="and-symbol">&</div>
-
-      <!-- Pengantin wanita -->
-      <div class="pengantin">
-        <img src="pengantinwanita.jpg" alt="Pengantin Perempuan" class="foto">
-        <h2 class="nama-pengantin">Ayu<br>Kusumaningrum</h2>
-        <p class="orang-tua">Putri dari Bapak Wiranto & Ibu Sumiati</p>
-      </div>
+    <!-- Pengantin wanita -->
+    <div class="pengantin">
+      <img src="pengantinwanita.jpg" alt="Pengantin Perempuan" class="foto">
+      <h2 class="nama-pengantin">Ayu<br>Kusumaningrum</h2>
+      <p class="orang-tua">Putri dari Bapak Wiranto & Ibu Sumiati</p>
     </div>
   </div>
 </div>
-
 
 </section>
 
@@ -676,4 +649,4 @@
     }, 1000);
   </script>
 </body>
-        </html>
+  </html>
