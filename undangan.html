@@ -59,30 +59,40 @@
     }
 
     /* Gradasi hitam dari bawah ke atas */
-    .black-gradient {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 70%; /* Tutup setengah layar bawah */
-      background: linear-gradient(to top, rgba(0,0,0,0.99), rgba(0,0,0,0)); /* Gradasi hitam ke transparan */
-      z-index: 2; /* Di atas slide */
+.black-solid {
+  position: absolute;
+  bottom: 0;
+  height: 20%; /* Full hitam 20% dari layar */
+  width: 100%;
+  background-color: black;
+  z-index: 2;
+}
+
+/* Gradasi dari hitam ke transparan di atas solid hitam */
+.black-gradient {
+  position: absolute;
+  bottom: 20%; /* Letaknya di atas lapisan hitam */
+  height: 30%; /* Tinggi gradasi */
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  z-index: 2;
+
     }
   </style>
 </head>
 
 <body>
+<!-- Di dalam .slideshow -->
+<div class="slideshow">
+  <div class="slide slide1"></div>
+  <div class="slide slide2"></div>
 
-  <!-- Bagian slideshow -->
-  <div class="slideshow">
+  <!-- Lapisan hitam pekat di bawah -->
+  <div class="black-solid"></div>
 
-    <!-- Gambar latar 1 -->
-    <div class="slide slide1"></div>
-
-    <!-- Gambar latar 2 -->
-    <div class="slide slide2"></div>
-
-    <!-- Efek gradasi hitam pekat di bagian bawah -->
-    <div class="black-gradient"></div>
+  <!-- Gradasi hitam ke transparan di atasnya -->
+  <div class="black-gradient"></div>
+</div>
 
   </div>
 
