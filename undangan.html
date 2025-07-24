@@ -176,16 +176,14 @@
   opacity: 1;
 }
     /* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
-.bg-undangan {
-  background: url('beground-khusus.jpg'); /* ganti ini dengan URL background kamu */
-  background-size: contain;
-  background-position: center;
+.bg-section-khusus {
+  background-image: url('beground-khusus.jpg');
   background-repeat: no-repeat;
-  padding: 60px 20px;
-  border-radius: 24px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  margin: 0 auto 80px;
-  max-width: 960px;
+  background-size: contain;
+  background-position: top center;
+  background-color: #fff;
+  padding: 80px 20px;
+  margin-bottom: 80px;
 }
     /* ==== PENYESUAIAN BISMILLAH ==== */
 .bismillah {
@@ -457,8 +455,9 @@
   </div>
 </div>
 
-<!-- === BAGIAN DENGAN BACKGROUND KHUSUS === -->
-<div class="bg-undangan">
+<!-- BAGIAN DENGAN BACKGROUND KHUSUS -->
+<div class="bg-section-khusus">
+
   <!-- === BISMILLAH ARAB === -->
   <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 
@@ -469,26 +468,27 @@
     untuk menghadiri acara pernikahan kami.
   </div>
 
-  <!-- Bagian profil pengantin -->
+  <!-- === PROFIL PENGANTIN === -->
   <div class="profil">
-    <!-- Pengantin Laki-laki -->
+    <!-- Pengantin pria -->
     <div class="pengantin">
       <img src="pengantinlaki.jpg" alt="Pengantin Laki-laki" class="foto">
       <h2 class="nama-pengantin">Bambang<br>Irswan</h2>
       <p class="orang-tua">Putra dari Bapak Sukirno & Ibu Sulastri</p>
     </div>
 
-    <!-- Simbol & -->
     <div class="and-symbol">&</div>
 
-    <!-- Pengantin Perempuan -->
+    <!-- Pengantin wanita -->
     <div class="pengantin">
       <img src="pengantinwanita.jpg" alt="Pengantin Perempuan" class="foto">
       <h2 class="nama-pengantin">Ayu<br>Kusumaningrum</h2>
       <p class="orang-tua">Putri dari Bapak Wiranto & Ibu Sumiati</p>
     </div>
   </div>
+
 </div>
+
 </section>
 
 <!-- Section Acara -->
