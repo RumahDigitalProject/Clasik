@@ -76,29 +76,35 @@
       margin-bottom: 20px;
     }
 /* Nama Pengantin */
-.bride-groom {
+.nama-pengantin {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  margin: 20px 0;
-}
-
-.bride-groom .name {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 32px;
-  color: #fff;
+  gap: 24px; /* jarak antar nama dan & */
   text-align: center;
-  line-height: 1.2;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.bride-groom .and {
+.nama-pria {
+  text-align: right;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.nama-wanita {
+  text-align: left;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.and {
+  font-size: 48px;
   font-family: 'Great Vibes', cursive;
-  font-size: 60px;
   color: gold;
   line-height: 1;
-  margin: 0 10px;
 }
 
     .countdown {
@@ -136,11 +142,11 @@
   <h2>THE WEDDING OF</h2>
 
   <!-- Nama pengantin -->
-  <div class="bride-groom">
-    <div class="name">BAMBANG<br>IRSWAN</div>
-    <div class="and">&</div>
-    <div class="name">AYU<br>SEPTIANINGRUM</div>
-  </div>
+<div class="nama-pengantin">
+  <div class="nama-pria">BAMBANG<br>IRSWAN</div>
+  <div class="and">&</div>
+  <div class="nama-wanita">AYU<br>SEPTIANINGRUM</div>
+</div>
 
   <div class="countdown" id="countdown"></div>
   <h2>07 OKTOBER 2025</h2>
