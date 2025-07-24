@@ -6,17 +6,17 @@
   <title>Undangan</title>
 
   <style>
-    /* Reset margin dan padding semua elemen */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    /* Agar body dan html memenuhi tinggi layar dan tidak bisa di-scroll */
-    body, html {
-      height: 100%;
-      overflow: hidden; /* Biar tidak bisa scroll */
+    /* Biarkan halaman bisa discroll */
+    html, body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     /* Container utama slideshow */
@@ -37,19 +37,16 @@
       animation: fadeSlide 10s infinite;
     }
 
-    /* Gambar 1 */
     .slide1 {
-      background-image: url('dasar1.jpg'); /* Ganti dengan gambar kamu */
+      background-image: url('dasar1.jpg');
       animation-delay: 0s;
     }
 
-    /* Gambar 2 */
     .slide2 {
-      background-image: url('dasar2.jpg'); /* Ganti dengan gambar kamu */
+      background-image: url('dasar2.jpg');
       animation-delay: 5s;
     }
 
-    /* Animasi fade antar gambar */
     @keyframes fadeSlide {
       0% { opacity: 0; }
       10% { opacity: 1; }
@@ -58,7 +55,6 @@
       100% { opacity: 0; }
     }
 
-    /* Overlay hitam gradasi dari bawah */
     .black-overlay {
       position: absolute;
       bottom: 0;
@@ -75,7 +71,6 @@
       pointer-events: none;
     }
 
-    /* Bungkus semua teks agar bisa diposisikan dengan mudah */
     .content-wrapper {
       position: absolute;
       top: 65%;
@@ -88,22 +83,20 @@
       padding: 0 20px;
     }
 
-    /* Tulisan heading "The Wedding of" */
     .content-wrapper h2 {
       font-size: 16px;
       letter-spacing: 2px;
       font-family: 'Poppins', sans-serif;
-      margin-bottom: 18px; /* Tambah spasi ke bawah */
+      margin-bottom: 18px;
     }
 
-    /* Nama pengantin */
     .nama-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 10px;
       margin: 10px 0;
-      margin-bottom: 30px; /* Spasi antara nama dan countdown */
+      margin-bottom: 30px;
     }
 
     .nama {
@@ -120,7 +113,6 @@
       margin: 0 10px;
     }
 
-    /* Hitung mundur */
     .countdown {
       display: flex;
       justify-content: center;
@@ -146,31 +138,44 @@
       color: #ccc;
     }
 
-    /* Tanggal */
     .tanggal {
       font-size: 12px;
       color: #eee;
       margin-top: 6px;
       font-family: 'Poppins', sans-serif;
     }
+
+    /* Bagian kutipan ayat Al-Qur’an */
+    .ayat-section {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f8f8f8;
+      padding: 40px 20px;
+    }
+
+    .ayat-text {
+      font-size: 20px;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      text-align: center;
+      max-width: 700px;
+    }
+
   </style>
 </head>
 
 <body>
+  <!-- Bagian slideshow -->
   <div class="slideshow">
-    <!-- Gambar slide -->
     <div class="slide slide1"></div>
     <div class="slide slide2"></div>
-
-    <!-- Overlay gradasi hitam -->
     <div class="black-overlay"></div>
 
-    <!-- Konten teks di atas gradasi -->
     <div class="content-wrapper">
-      <!-- Judul utama -->
       <h2>The Wedding of</h2>
 
-      <!-- Nama pengantin dibagi 2 baris masing-masing -->
       <div class="nama-wrapper">
         <div class="nama">
           <div>Bambang</div>
@@ -183,7 +188,6 @@
         </div>
       </div>
 
-      <!-- Countdown -->
       <div class="countdown">
         <div><span id="hari">00</span><small>Hari</small></div>
         <div><span id="jam">00</span><small>Jam</small></div>
@@ -191,43 +195,47 @@
         <div><span id="detik">00</span><small>Detik</small></div>
       </div>
 
-      <!-- Tanggal acara -->
       <div class="tanggal">Selasa, 7 Oktober 2025 • 08.00 WIB</div>
     </div>
   </div>
 
-  <!-- lagu -->
+  <!-- Musik latar -->
   <audio id="bg-music" src="lagu.mp3" autoplay loop></audio>
 
-  // Script lagu
+  <!-- Bagian ayat Al-Qur'an -->
+  <div class="ayat-section">
+    <div class="ayat-text">
+      "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." <br><br>
+      <em>(QS. Ar-Rum: 21)</em>
+    </div>
+  </div>
+
+  <!-- Script Musik dan Countdown -->
   <script>
-  const audio = document.getElementById('bg-music');
+    const audio = document.getElementById('bg-music');
 
-  // Mainkan musik saat halaman selesai dimuat
-  window.addEventListener('load', () => {
-    audio.play().catch((err) => {
-      console.warn("Autoplay gagal, browser butuh interaksi pengguna.", err);
+    window.addEventListener('load', () => {
+      audio.play().catch((err) => {
+        console.warn("Autoplay gagal, browser butuh interaksi pengguna.", err);
+      });
     });
-  });
 
-  // Pause saat tab tidak aktif, play lagi saat aktif
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') {
-      audio.play();
-    } else {
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+
+    window.addEventListener('blur', () => {
       audio.pause();
-    }
-  });
+    });
 
-  // Jika berpindah jendela atau minimize
-  window.addEventListener('blur', () => {
-    audio.pause();
-  });
-  window.addEventListener('focus', () => {
-    audio.play();
-  });
+    window.addEventListener('focus', () => {
+      audio.play();
+    });
 
-  // Script Hitung Mundur 
     const targetDate = new Date("2025-10-07T08:00:00").getTime();
 
     setInterval(() => {
