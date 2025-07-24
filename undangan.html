@@ -78,33 +78,35 @@
 /* Nama Pengantin */
 .nama-pengantin {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 24px; /* jarak antar nama dan & */
-  text-align: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .nama-pria {
+  align-self: flex-end; /* posisi kanan */
   text-align: right;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: white;
-}
-
-.nama-wanita {
-  text-align: left;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
+  line-height: 1.2;
 }
 
 .and {
-  font-size: 48px;
+  font-size: 64px;
   font-family: 'Great Vibes', cursive;
   color: gold;
   line-height: 1;
+}
+
+.nama-wanita {
+  align-self: flex-start; /* posisi kiri */
+  text-align: left;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  line-height: 1.2;
 }
 
     .countdown {
