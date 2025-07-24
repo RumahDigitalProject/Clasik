@@ -145,23 +145,26 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* Bagian kutipan ayat Al-Qur’an */
-    .ayat-section {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f8f8f8;
-      padding: 40px 20px;
-    }
+      /* Container ayat Al-Quran */
+  .ayat-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background-color: #f8f8f8; /* Latar belakang terang */
+  }
 
-    .ayat-text {
-      font-size: 20px;
-      font-family: 'Poppins', sans-serif;
-      color: #333;
-      text-align: center;
-      max-width: 700px;
-    }
+  /* Teks ayat yang elegan */
+  .ayat-section p {
+    font-family: Georgia, serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+    color: #333;
+    max-width: 700px;
+    line-height: 1.6;
+  }
 
   </style>
 </head>
@@ -202,13 +205,15 @@
   <!-- Musik latar -->
   <audio id="bg-music" src="lagu.mp3" autoplay loop></audio>
 
-  <!-- Bagian ayat Al-Qur'an -->
-  <div class="ayat-section">
-    <div class="ayat-text">
-      "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." <br><br>
-      <em>(QS. Ar-Rum: 21)</em>
-    </div>
-  </div>
+  <!-- Section ayat Al-Quran -->
+<div class="ayat-section">
+  <p>
+    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, 
+    supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. 
+    Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." <br><br>
+    — QS. Ar-Rum: 21
+  </p>
+</div>
 
   <!-- Script Musik dan Countdown -->
   <script>
