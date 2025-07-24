@@ -144,27 +144,34 @@
       margin-top: 6px;
       font-family: 'Poppins', sans-serif;
     }
+/* SLIDE AYAT SECTION */
+.ayat-slider {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px 20px;
+}
 
-      /* Container ayat Al-Quran */
-  .ayat-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-    background-color: #f8f8f8; /* Latar belakang terang */
-  }
+.ayat-slide {
+  position: absolute;
+  max-width: 700px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.6;
+  color: #333;
+}
 
-  /* Teks ayat yang elegan */
-  .ayat-section p {
-    font-family: Georgia, serif;
-    font-size: 20px;
-    font-style: italic;
-    text-align: center;
-    color: #333;
-    max-width: 700px;
-    line-height: 1.6;
-  }
+.ayat-slide.active {
+  opacity: 1;
+}
 
   </style>
 </head>
@@ -205,18 +212,40 @@
   <!-- Musik latar -->
   <audio id="bg-music" src="lagu.mp3" autoplay loop></audio>
 
-  <!-- Section ayat Al-Quran -->
-<div class="ayat-section">
-  <p>
-    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri, 
-    supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. 
+  <!-- Section Slide Ayat Al-Quran -->
+<div class="ayat-slider">
+  <!-- Slide pertama -->
+  <div class="ayat-slide active">
+    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri,
+    supaya kamu merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang.
     Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berpikir." <br><br>
     — QS. Ar-Rum: 21
-  </p>
+  </div>
+
+  <!-- Slide kedua -->
+  <div class="ayat-slide">
+    "Mereka (istri-istrimu) adalah pakaian bagimu, dan kamu pun adalah pakaian bagi mereka.
+    Allah mengetahui bahwa kamu tidak dapat menahan diri, karena itu Allah mengampunimu dan memberi keringanan." <br><br>
+    — QS. Al-Baqarah: 187
+  </div>
 </div>
 
-  <!-- Script Musik dan Countdown -->
-  <script>
+  // Script pergantian slide otomatis //
+<script>
+  const slides = document.querySelectorAll('.ayat-slide');
+  let currentSlide = 0;
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove('active');
+
+    // geser ke slide berikutnya
+    currentSlide = (currentSlide + 1) % slides.length;
+
+    slides[currentSlide].classList.add('active');
+  }, 7000); // ganti setiap 7 detik
+
+
+  // Script Musik dan Countdown //
     const audio = document.getElementById('bg-music');
 
     window.addEventListener('load', () => {
