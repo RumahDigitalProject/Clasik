@@ -58,35 +58,119 @@
       100% { opacity: 0; } /* Hilang sepenuhnya */
     }
 
-/* Overlay gradasi menyatu mulus */
-.black-overlay {
-  position: absolute;
-  bottom: 0;
-  height: 80vh; /* 50% tinggi layar */
-  width: 100%;
-  z-index: 2;
-  background: linear-gradient(to top,
-  rgba(0, 0, 0, 1) 0%,     /* Hitam pekat dari bawah */
-  rgba(0, 0, 0, 1) 30%,    /* Masih pekat sampai 30% */
-  rgba(0, 0, 0, 0.7) 55%,  /* Mulai gradasi */
-  rgba(0, 0, 0, 0.3) 70%,  /* Semakin transparan */
-  rgba(0, 0, 0, 0) 85%     /* Transparan penuh di atas */
-);
-  pointer-events: none; /* Biar tidak menghalangi klik */
-}
+    /* Overlay gradasi menyatu mulus */
+    .black-overlay {
+      position: absolute;
+      bottom: 0;
+      height: 80vh; /* 50% tinggi layar */
+      width: 100%;
+      z-index: 2;
+      background: linear-gradient(to top,
+        rgba(0, 0, 0, 1) 0%,     /* Hitam pekat dari bawah */
+        rgba(0, 0, 0, 1) 30%,    /* Masih pekat sampai 30% */
+        rgba(0, 0, 0, 0.7) 55%,  /* Mulai gradasi */
+        rgba(0, 0, 0, 0.3) 70%,  /* Semakin transparan */
+        rgba(0, 0, 0, 0) 85%     /* Transparan penuh di atas */
+      );
+      pointer-events: none; /* Biar tidak menghalangi klik */
+    }
 
+    /* Tulisan di bagian bawah */
+    .text-bottom {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      z-index: 3;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .text-bottom h2 {
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+
+    .text-bottom .nama {
+      font-family: 'Great Vibes', cursive;
+      font-size: 26px;
+      margin: 4px 0;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 6px 0;
+    }
+
+    .countdown div {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 5px 10px;
+      border-radius: 8px;
+      min-width: 40px;
+    }
+
+    .countdown span {
+      font-size: 16px;
+      font-weight: bold;
+      display: block;
+    }
+
+    .countdown small {
+      font-size: 10px;
+      color: #ccc;
+    }
+
+    .tanggal {
+      font-size: 12px;
+      color: #eee;
+    }
   </style>
 </head>
 
 <body>
-<div class="slideshow">
-  <div class="slide slide1"></div>
-  <div class="slide slide2"></div>
+  <div class="slideshow">
+    <div class="slide slide1"></div>
+    <div class="slide slide2"></div>
 
-  <!-- Overlay gradasi menyatu -->
-  <div class="black-overlay"></div>
-</div>
+    <!-- Overlay gradasi menyatu -->
+    <div class="black-overlay"></div>
 
+    <!-- Tulisan di bagian bawah -->
+    <div class="text-bottom">
+      <h2>The Wedding of</h2>
+      <div class="nama">BAMBANG & AYU</div>
 
+      <div class="countdown">
+        <div><span id="hari">00</span><small>Hari</small></div>
+        <div><span id="jam">00</span><small>Jam</small></div>
+        <div><span id="menit">00</span><small>Menit</small></div>
+        <div><span id="detik">00</span><small>Detik</small></div>
+      </div>
+
+      <div class="tanggal">Selasa, 7 Oktober 2025 • 08.00 WIB</div>
+    </div>
+  </div>
+
+  <!-- Countdown Script -->
+  <script>
+    const targetDate = new Date("2025-10-07T08:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const selisih = targetDate - now;
+
+      const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+      const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+      const detik = Math.floor((selisih % (1000 * 60)) / 1000);
+
+      document.getElementById("hari").innerText = hari.toString().padStart(2, '0');
+      document.getElementById("jam").innerText = jam.toString().padStart(2, '0');
+      document.getElementById("menit").innerText = menit.toString().padStart(2, '0');
+      document.getElementById("detik").innerText = detik.toString().padStart(2, '0');
+    }, 1000);
+  </script>
 </body>
 </html>
