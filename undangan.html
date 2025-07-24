@@ -59,42 +59,35 @@
     }
 
     /* Gradasi hitam dari bawah ke atas */
-.black-solid {
+/* Overlay gradasi menyatu mulus */
+.black-overlay {
   position: absolute;
   bottom: 0;
-  height: 20%; /* Full hitam 20% dari layar */
+  height: 50vh; /* 50% tinggi layar */
   width: 100%;
-  background-color: black;
   z-index: 2;
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, 1) 0%,      /* Full hitam di paling bawah */
+    rgba(0, 0, 0, 0.9) 20%,   /* Sedikit lebih terang */
+    rgba(0, 0, 0, 0.6) 35%,   /* Semakin transparan */
+    rgba(0, 0, 0, 0.3) 45%,   /* Mendekati transparan */
+    rgba(0, 0, 0, 0) 60%      /* Transparan penuh di atas */
+  );
+  pointer-events: none; /* Biar tidak menghalangi klik */
 }
 
-/* Gradasi dari hitam ke transparan di atas solid hitam */
-.black-gradient {
-  position: absolute;
-  bottom: 20%; /* Letaknya di atas lapisan hitam */
-  height: 30%; /* Tinggi gradasi */
-  width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
-  z-index: 2;
-
-    }
   </style>
 </head>
 
 <body>
-<!-- Di dalam .slideshow -->
 <div class="slideshow">
   <div class="slide slide1"></div>
   <div class="slide slide2"></div>
 
-  <!-- Lapisan hitam pekat di bawah -->
-  <div class="black-solid"></div>
-
-  <!-- Gradasi hitam ke transparan di atasnya -->
-  <div class="black-gradient"></div>
+  <!-- Overlay gradasi menyatu -->
+  <div class="black-overlay"></div>
 </div>
 
-  </div>
 
 </body>
 </html>
