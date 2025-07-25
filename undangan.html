@@ -491,6 +491,18 @@
   font-size: 28px;
   color: #d63384;
 }
+
+/* ANIMASI FOOTER */
+.scroll-animate-footer {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.scroll-animate-footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 <body>
@@ -644,20 +656,43 @@
 </section>
 
 <!--Brand-->
-<footer class="footer-wedding">
-<div class="footer-content">
-<p>Undangan oleh <strong>Rumah Digital Project</strong></p>
-<div class="footer-row">
-<span>© 2025</span>
-<a class="wa-icon-inline" href="https://wa.me/6285706889273" target="_blank">
-<img alt="WhatsApp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png"/>
-</a>
-</div>
-</div>
+<footer class="footer-wedding scroll-animate-footer">
+  <div class="footer-content">
+    <p>Undangan oleh <strong>Rumah Digital Project</strong></p>
+    <div class="footer-row">
+      <span>© 2025</span>
+      <a class="wa-icon-inline" href="https://wa.me/6285706889273" target="_blank">
+        <img alt="WhatsApp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png"/>
+      </a>
+    </div>
+  </div>
 </footer>
-   
-<!-- Script pergantian slide ayat otomatis -->
+
+// SCRIP ANIMASI
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    const targets = document.querySelectorAll('.scroll-animate-footer');
+    targets.forEach((target) => {
+      observer.observe(target);
+    });
+  });
+
+// Script pergantian slide ayat otomatis
   const slides = document.querySelectorAll('.ayat-slide');
   let currentSlide = 0;
 
