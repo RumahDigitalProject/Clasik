@@ -680,27 +680,43 @@
 </footer>
 
 <script>
-  // Target semua elemen yang ingin dianimasikan
-  const animatedElements = document.querySelectorAll(
-    '.pengantin, .galeri-item, .jadwal-box, .ucapan-box, .ayat-slider, .salam-undangan, .bismillah'
-  );
+  const animatedElements = [
+    ...document.querySelectorAll('.pengantin'),                   // foto pengantin
+    ...document.querySelectorAll('.galeri-item'),                // foto galeri
+    ...document.querySelectorAll('.jadwal-box'),                 // kotak jadwal
+    ...document.querySelectorAll('.ucapan-box'),                 // kotak penutup
+    ...document.querySelectorAll('.ayat-slider'),                // ayat slide
+    ...document.querySelectorAll('.salam-undangan'),             // teks salam
+    ...document.querySelectorAll('.bismillah'),                  // bismillah
+    ...document.querySelectorAll('.content-wrapper'),            // nama utama atas
+    ...document.querySelectorAll('.galeri-title'),               // judul galeri
+    ...document.querySelectorAll('.nama-pengantin'),             // nama pengantin
+    ...document.querySelectorAll('.orang-tua'),                  // nama ortu
+    ...document.querySelectorAll('.ucapan-teks'),                // teks penutup
+    ...document.querySelectorAll('.ucapan-nama')                 // nama penutup
+  ];
 
-  // Tambahkan class animasi awal (sembunyi)
-  animatedElements.forEach(el => {
-    // pilih animasi yang kamu mau
-    el.classList.add('fade-in-up'); // atau 'zoom-in'
+  // Tambahkan class animasi yang cocok ke masing-masing
+  animatedElements.forEach((el, i) => {
+    const delayClass = i % 3 === 0 ? 'staggered-delay' : i % 3 === 1 ? 'staggered-delay-2' : 'staggered-delay-3';
+
+    if (el.classList.contains('galeri-item') || el.classList.contains('pengantin')) {
+      el.classList.add('zoom-in', delayClass);
+    } else if (el.classList.contains('galeri-title') || el.classList.contains('content-wrapper')) {
+      el.classList.add('fade-in-down', delayClass);
+    } else {
+      el.classList.add('fade-in-up', delayClass);
+    }
   });
 
-  // Observer untuk deteksi elemen masuk ke layar
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
-        // observer.unobserve(entry.target); // kalau mau animasi hanya sekali
       }
     });
   }, {
-    threshold: 0.1
+    threshold: 0.2
   });
 
   animatedElements.forEach(el => observer.observe(el));
