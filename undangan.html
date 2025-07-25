@@ -534,17 +534,6 @@
   opacity: 1;
   transform: translateX(0);
 }
-   .fade-in-down {
-  opacity: 0;
-  transform: translateY(-30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in-down.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 </style>
 </head>
@@ -555,33 +544,34 @@
   <div class="slide slide2"></div>
   <div class="black-overlay"></div>
 
-<div class="content-wrapper">
-  <h2 id="hero-title" class="fade-in-down">The Wedding of</h2>
+  <!-- Tambah ID ke elemen yang ingin dianimasikan satu per satu -->
+  <div class="content-wrapper">
+    <h2 id="hero-title">The Wedding of</h2>
 
-  <div class="nama-wrapper fade-in-up" id="hero-nama">
-    <div class="nama">
-      <div>Bambang</div>
-      <div>Irswan</div>
+    <div class="nama-wrapper" id="hero-nama">
+      <div class="nama">
+        <div>Bambang</div>
+        <div>Irswan</div>
+      </div>
+      <div class="dan">&amp;</div>
+      <div class="nama">
+        <div>Ayu</div>
+        <div>Kusumaningrum</div>
+      </div>
     </div>
-    <div class="dan">&amp;</div>
-    <div class="nama">
-      <div>Ayu</div>
-      <div>Kusumaningrum</div>
+
+    <div class="countdown" id="hero-countdown">
+      <div><span id="hari">00</span><small>Hari</small></div>
+      <div><span id="jam">00</span><small>Jam</small></div>
+      <div><span id="menit">00</span><small>Menit</small></div>
+      <div><span id="detik">00</span><small>Detik</small></div>
     </div>
-  </div>
 
-  <div class="countdown zoom-in" id="hero-countdown">
-    <div><span id="hari">00</span><small>Hari</small></div>
-    <div><span id="jam">00</span><small>Jam</small></div>
-    <div><span id="menit">00</span><small>Menit</small></div>
-    <div><span id="detik">00</span><small>Detik</small></div>
-  </div>
-
-  <div class="tanggal fade-in-up" id="hero-tanggal">
-    Selasa, 7 Oktober 2025 • 08.00 WIB
+    <div class="tanggal" id="hero-tanggal">
+      Selasa, 7 Oktober 2025 • 08.00 WIB
+    </div>
   </div>
 </div>
-
 
 <!-- Musik latar -->
 <audio autoplay="" id="bg-music" loop="" src="lagu.mp3"></audio>
@@ -768,20 +758,6 @@
     setTimeout(() => document.getElementById('hero-countdown')?.classList.add('zoom-in', 'show'), 1000);
     setTimeout(() => document.getElementById('hero-tanggal')?.classList.add('fade-in-up', 'show'), 1400);
   });
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('hero-title')?.classList.add('show');
-  }, 200);
-  setTimeout(() => {
-    document.getElementById('hero-nama')?.classList.add('show');
-  }, 600);
-  setTimeout(() => {
-    document.getElementById('hero-countdown')?.classList.add('show');
-  }, 1000);
-  setTimeout(() => {
-    document.getElementById('hero-tanggal')?.classList.add('show');
-  }, 1400);
-});
 
 // Script pergantian slide ayat otomatis 
   const slides = document.querySelectorAll('.ayat-slide');
