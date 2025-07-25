@@ -492,17 +492,18 @@
   color: #d63384;
 }
 
-/* ANIMASI FOOTER */
-.scroll-animate-footer {
+/* === ANIMASI FOOTER === */
+.scroll-fade {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
-  will-change: opacity, transform;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.scroll-animate-footer.visible {
+
+.scroll-fade.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 </style>
 </head>
 <body>
@@ -656,7 +657,7 @@
 </section>
 
 <!--Brand-->
-<footer class="footer-wedding scroll-animate-footer">
+<footer class="footer-wedding scroll-fade">
   <div class="footer-content">
     <p>Undangan oleh <strong>Rumah Digital Project</strong></p>
     <div class="footer-row">
@@ -670,27 +671,16 @@
 
 // SCRIP ANIMASI
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          } else {
-            entry.target.classList.remove("visible");
-          }
-        });
-      },
-      {
-        threshold: 0.15,
-      }
-    );
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("visible", entry.isIntersecting);
+      });
+    }, { threshold: 0.15 });
 
-    const targets = document.querySelectorAll('.scroll-animate-footer');
-    targets.forEach((target) => {
-      observer.observe(target);
-    });
+    document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
   });
+
 
 // Script pergantian slide ayat otomatis
   const slides = document.querySelectorAll('.ayat-slide');
