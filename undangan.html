@@ -271,8 +271,7 @@
   color: #888;
 
 /* DATE*/
-}
-  #acara {
+#acara {
   background-color: #fefaf6;
   padding: 48px 20px;
   text-align: center;
@@ -287,17 +286,33 @@
 
 #acara .box-acara {
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  max-width: 320px;
-  margin: 16px auto;
-  padding: 20px;
+  border-radius: 999px; /* Supaya oval penuh */
+  box-shadow: none; /* Hilangkan bayangan kotak */
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px 30px;
+  display: inline-block;
 }
 
-    /* DATE */
+#acara .box-acara h3,
 #acara .box-acara p {
   font-family: Georgia, serif;
+  margin: 5px 0;
+  color: #444;
 }
+
+#acara .box-acara a {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #d63384;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+}
+
 
     /*GALERY*/
 .galeri-section {
