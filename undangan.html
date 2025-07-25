@@ -289,16 +289,21 @@
   min-height: 100vh;
 }
 .box-acara {
-  background: #fef8f2 url('motif-lembut.png') no-repeat center;
-  background-size: contain;
+  background: #fef8f2 url('motif-dalam.png') no-repeat center;
+  background-size: cover;
   border: 3px solid gold;
-  border-radius: 40px / 80px; /* Lonjong vertikal */
-  padding: 40px 20px;
-  max-width: 380px;
+  border-radius: 999px;
+  aspect-ratio: 9 / 16;
+  max-width: 360px;
   width: 100%;
+  padding: 40px 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   text-align: center;
   color: #7b1f26;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Media query agar tidak mepet di HP kecil */
