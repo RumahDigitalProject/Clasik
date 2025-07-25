@@ -467,21 +467,9 @@
   padding: 40px 30px 80px;
   max-width: 500px;
   text-align: center;
+  border-radius: 40px 40px 80px 80px; /* bagian bawah melengkung */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   position: relative;
-  border-radius: 40px 40px 100px 100px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-.ucapan-box::after {
-  content: '';
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 60px;
-  background: white;
-  border-radius: 50% 50% 0 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 .ucapan-teks {
   font-family: 'Poppins', sans-serif;
@@ -553,6 +541,7 @@
     Tanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i<br/>
     untuk menghadiri acara pernikahan kami.
   </div>
+   
 <!-- === PROFIL PENGANTIN === -->
 <div class="profil">
 <!-- Pengantin pria -->
@@ -590,6 +579,7 @@
 </div>
 </section>
 </div>
+   
 <!-- Section Acara -->
 <!-- Galeri -->
 <section class="galeri-section">
@@ -626,28 +616,20 @@
 </div>
 </div>
 </section>
+   
 <!--Penutup-->
-<section class="penutup-section">
-<div class="penutup-box">
-<p class="ucapan">Merupakan suatu kehormatan dan kebahagiaan bagi kami,</p>
-<p class="ucapan">apabila Bapak/Ibu/Saudara/i berkenan hadir</p>
-<p class="ucapan">untuk memberikan doa restu kepada kami.</p>
-<p class="ucapan">Atas kehadiran dan doa restunya, kami mengucapkan terima kasih.</p>
-<h3 class="nama-penutup">Irswan &amp; Ayu </h3>
-</div>
-</section>
-<!--Brand-->
-
 <section id="ucapan">
 <div class="ucapan-box">
 <p class="ucapan-teks">
-      Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+      Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu, Atas kehadiran dan doa restunya kami mengucapkan terima kasih..
     </p>
 <p class="ucapan-nama">
-      Bambang &amp; Ayu
+      Irswan &amp; Ayu
     </p>
 </div>
 </section>
+
+<!--Brand-->
 <footer class="footer-wedding">
 <div class="footer-content">
 <p>Undangan oleh <strong>Rumah Digital Project</strong></p>
@@ -659,6 +641,7 @@
 </div>
 </div>
 </footer>
+   
 <!-- Script pergantian slide ayat otomatis -->
 <script>
   const slides = document.querySelectorAll('.ayat-slide');
