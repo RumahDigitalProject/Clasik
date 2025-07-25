@@ -175,20 +175,6 @@
 .ayat-slide.active {
   opacity: 1;
 }
-.ayat-slider {
-  position: relative;
-  min-height: 100vh;
-  background-image: url('background-ayat.png'); /* Ganti dengan nama file sesuai */
-  background-repeat: no-repeat;
-  background-size: contain; /* agar tidak nge-zoom */
-  background-position: center top;
-  background-color: #f8f8f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  padding: 40px 20px;
-}
     /* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
 .bg-section-khusus {
   background-image: url('background-khusus.jpg');
@@ -271,7 +257,8 @@
   color: #888;
 
 /* DATE*/
-#acara {
+}
+  #acara {
   background-color: #fefaf6;
   padding: 48px 20px;
   text-align: center;
@@ -286,33 +273,17 @@
 
 #acara .box-acara {
   background: white;
-  border-radius: 999px; /* Supaya oval penuh */
-  box-shadow: none; /* Hilangkan bayangan kotak */
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px 30px;
-  display: inline-block;
-}
+  border-radius: 40px; /* Ujung membulat oval */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Tetap seperti semula */
+  max-width: 320px;
+  margin: 16px auto;
+  padding: 30px 20px; /* Lebih tinggi agar bentuknya oval vertikal */
+    }
 
-#acara .box-acara h3,
+    /* DATE */
 #acara .box-acara p {
   font-family: Georgia, serif;
-  margin: 5px 0;
-  color: #444;
 }
-
-#acara .box-acara a {
-  display: inline-block;
-  margin-top: 10px;
-  background-color: #d63384;
-  color: white;
-  padding: 10px 24px;
-  border-radius: 999px;
-  font-weight: bold;
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-}
-
 
     /*GALERY*/
 .galeri-section {
@@ -468,7 +439,7 @@
   <!-- Musik latar -->
   <audio id="bg-music" src="lagu.mp3" autoplay loop></audio>
 
-<!-- Section Slide Ayat Al-Quran -->
+  <!-- Section Slide Ayat Al-Quran -->
 <div class="ayat-slider">
   <!-- Slide pertama -->
   <div class="ayat-slide active">
