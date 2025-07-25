@@ -513,37 +513,66 @@
   opacity: 1;
   transform: scale(1);
 }
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-in-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-in-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
 
 </style>
 </head>
 <body>
 <!-- Bagian slideshow -->
 <div class="slideshow">
-<div class="slide slide1"></div>
-<div class="slide slide2"></div>
-<div class="black-overlay"></div>
-<div class="content-wrapper">
-<h2>The Wedding of</h2>
-<div class="nama-wrapper">
-<div class="nama">
-<div>Bambang</div>
-<div>Irswan</div>
+  <div class="slide slide1"></div>
+  <div class="slide slide2"></div>
+  <div class="black-overlay"></div>
+
+  <!-- Tambah ID ke elemen yang ingin dianimasikan satu per satu -->
+  <div class="content-wrapper">
+    <h2 id="hero-title">The Wedding of</h2>
+
+    <div class="nama-wrapper" id="hero-nama">
+      <div class="nama">
+        <div>Bambang</div>
+        <div>Irswan</div>
+      </div>
+      <div class="dan">&amp;</div>
+      <div class="nama">
+        <div>Ayu</div>
+        <div>Kusumaningrum</div>
+      </div>
+    </div>
+
+    <div class="countdown" id="hero-countdown">
+      <div><span id="hari">00</span><small>Hari</small></div>
+      <div><span id="jam">00</span><small>Jam</small></div>
+      <div><span id="menit">00</span><small>Menit</small></div>
+      <div><span id="detik">00</span><small>Detik</small></div>
+    </div>
+
+    <div class="tanggal" id="hero-tanggal">
+      Selasa, 7 Oktober 2025 • 08.00 WIB
+    </div>
+  </div>
 </div>
-<div class="dan">&amp;</div>
-<div class="nama">
-<div>Ayu</div>
-<div>Kusumaningrum</div>
-</div>
-</div>
-<div class="countdown">
-<div><span id="hari">00</span><small>Hari</small></div>
-<div><span id="jam">00</span><small>Jam</small></div>
-<div><span id="menit">00</span><small>Menit</small></div>
-<div><span id="detik">00</span><small>Detik</small></div>
-</div>
-<div class="tanggal">Selasa, 7 Oktober 2025 • 08.00 WIB</div>
-</div>
-</div>
+
 <!-- Musik latar -->
 <audio autoplay="" id="bg-music" loop="" src="lagu.mp3"></audio>
 <!-- Section Slide Ayat Al-Quran -->
@@ -680,46 +709,55 @@
 </footer>
 
 <script>
+  // ANIMASI SCROLL MASUK
   const animatedElements = [
-    ...document.querySelectorAll('.pengantin'),                   // foto pengantin
-    ...document.querySelectorAll('.galeri-item'),                // foto galeri
-    ...document.querySelectorAll('.jadwal-box'),                 // kotak jadwal
-    ...document.querySelectorAll('.ucapan-box'),                 // kotak penutup
-    ...document.querySelectorAll('.ayat-slider'),                // ayat slide
-    ...document.querySelectorAll('.salam-undangan'),             // teks salam
-    ...document.querySelectorAll('.bismillah'),                  // bismillah
-    ...document.querySelectorAll('.content-wrapper'),            // nama utama atas
-    ...document.querySelectorAll('.galeri-title'),               // judul galeri
-    ...document.querySelectorAll('.nama-pengantin'),             // nama pengantin
-    ...document.querySelectorAll('.orang-tua'),                  // nama ortu
-    ...document.querySelectorAll('.ucapan-teks'),                // teks penutup
-    ...document.querySelectorAll('.ucapan-nama')                 // nama penutup
+    ...document.querySelectorAll('.pengantin'),
+    ...document.querySelectorAll('.jadwal-box'),
+    ...document.querySelectorAll('.ucapan-box'),
+    ...document.querySelectorAll('.ayat-slider'),
+    ...document.querySelectorAll('.salam-undangan'),
+    ...document.querySelectorAll('.bismillah'),
+    ...document.querySelectorAll('.galeri-title'),
+    ...document.querySelectorAll('.nama-pengantin'),
+    ...document.querySelectorAll('.orang-tua'),
+    ...document.querySelectorAll('.ucapan-teks'),
+    ...document.querySelectorAll('.ucapan-nama')
   ];
 
-  // Tambahkan class animasi yang cocok ke masing-masing
   animatedElements.forEach((el, i) => {
     const delayClass = i % 3 === 0 ? 'staggered-delay' : i % 3 === 1 ? 'staggered-delay-2' : 'staggered-delay-3';
 
-    if (el.classList.contains('galeri-item') || el.classList.contains('pengantin')) {
+    if (el.classList.contains('pengantin')) {
       el.classList.add('zoom-in', delayClass);
-    } else if (el.classList.contains('galeri-title') || el.classList.contains('content-wrapper')) {
-      el.classList.add('fade-in-down', delayClass);
     } else {
       el.classList.add('fade-in-up', delayClass);
     }
   });
 
+  // Tambahkan animasi fade dari kanan/kiri ke galeri secara bergantian
+  const galeriItems = document.querySelectorAll('.galeri-item');
+  galeriItems.forEach((item, i) => {
+    item.classList.add(i % 2 === 0 ? 'fade-in-left' : 'fade-in-right');
+  });
+
+  // Observer animasi scroll
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
       }
     });
-  }, {
-    threshold: 0.2
-  });
+  }, { threshold: 0.15 });
 
-  animatedElements.forEach(el => observer.observe(el));
+  [...animatedElements, ...galeriItems].forEach(el => observer.observe(el));
+
+  // ANIMASI HERO (satu kali saat load)
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => document.getElementById('hero-title')?.classList.add('fade-in-down', 'show'), 200);
+    setTimeout(() => document.getElementById('hero-nama')?.classList.add('fade-in-up', 'show'), 600);
+    setTimeout(() => document.getElementById('hero-countdown')?.classList.add('zoom-in', 'show'), 1000);
+    setTimeout(() => document.getElementById('hero-tanggal')?.classList.add('fade-in-up', 'show'), 1400);
+  });
 
 // Script pergantian slide ayat otomatis 
   const slides = document.querySelectorAll('.ayat-slide');
