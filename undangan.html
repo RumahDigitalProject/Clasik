@@ -288,13 +288,21 @@
   margin-bottom: 0px;
   min-height: 100vh;
 }
-
+.box-acara {
+  background: #fef8f2 url('motif-lembut.png') no-repeat center;
+  background-size: contain;
+  border: 3px solid gold;
+  border-radius: 40px / 80px; /* Lonjong vertikal */
+  padding: 40px 20px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  color: #7b1f26;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
 
 /* Media query agar tidak mepet di HP kecil */
 @media (max-width: 480px) {
-  #acara .box-acara {
-    margin-left: 16px;
-    margin-right: 16px;
   }
 
     /* DATE */
@@ -334,18 +342,6 @@
   font-weight: bold;
   display: inline-block;
   width: 80px;
-}
-.box-acara {
-  background: #fef8f2 url('motif-lembut.png') no-repeat center;
-  background-size: contain;
-  border: 3px solid gold;
-  border-radius: 50% / 10%;
-  padding: 40px 20px;
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-  color: #7b1f26;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 .bingkai-emas .judul {
   font-size: 24px;
