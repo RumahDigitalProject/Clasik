@@ -491,6 +491,29 @@
   font-size: 28px;
   color: #d63384;
 }
+/* Animasi Umum */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.zoom-in.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
 </style>
 </head>
 <body>
@@ -655,9 +678,34 @@
 </div>
 </div>
 </footer>
-   
-<!-- Script pergantian slide ayat otomatis -->
+
 <script>
+  // Target semua elemen yang ingin dianimasikan
+  const animatedElements = document.querySelectorAll(
+    '.pengantin, .galeri-item, .jadwal-box, .ucapan-box, .ayat-slider, .salam-undangan, .bismillah'
+  );
+
+  // Tambahkan class animasi awal (sembunyi)
+  animatedElements.forEach(el => {
+    // pilih animasi yang kamu mau
+    el.classList.add('fade-in-up'); // atau 'zoom-in'
+  });
+
+  // Observer untuk deteksi elemen masuk ke layar
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        // observer.unobserve(entry.target); // kalau mau animasi hanya sekali
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  animatedElements.forEach(el => observer.observe(el));
+
+// Script pergantian slide ayat otomatis 
   const slides = document.querySelectorAll('.ayat-slide');
   let currentSlide = 0;
 
