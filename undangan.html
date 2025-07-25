@@ -279,7 +279,7 @@
 }
 /* DATE*/
   #acara {
-  background: #7b1f26 url('beground-date.png') no-repeat center center;
+  background: #7b1f26 url('beground-dahte.png') no-repeat center center;
   background-size: cover;
   background-attachment: fixed; /* 🎯 INI YANG BIKIN BACKGROUND DIAM */
   min-height: 100vh;
@@ -358,7 +358,18 @@
   font-size: 64px;
   margin: 10px 0;
 }
-
+.bg-static {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('beground-date.png') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
     /*GALERY*/
 .galeri-section {
   padding: 60px 20px;
@@ -671,35 +682,42 @@
 </div>
 </div>
 
-<!--ACARA-->
-<section id="acara">
-<div class="box-acara fade-in-up">
-<div class="bingkai-emas">
-<h2 class="judul">Akad Nikah</h2>
-<p class="hari">SELASA</p>
-    <h1 class="tanggal">07</h1>
-    <p class="bulan">OKTOBER 2025</p>
-    <p class="jam">08:00 WIB – Selesai</p>
-    <div class="ikon-rumah">-------🏠-------</div>
-    <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
-</div>
+<!-- ACARA: Akad -->
+<section id="acara" style="position: relative;">
+  <div class="bg-static"></div> <!-- 🎯 background diam hanya untuk section ini -->
+
+  <div class="box-acara fade-in-up">
+    <div class="bingkai-emas">
+      <h2 class="judul">Akad Nikah</h2>
+      <p class="hari">SELASA</p>
+      <h1 class="tanggal">07</h1>
+      <p class="bulan">OKTOBER 2025</p>
+      <p class="jam">08:00 WIB – Selesai</p>
+      <div class="ikon-rumah">-------🏠-------</div>
+      <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
+    </div>
+  </div>
 </section>
 
-<section id="acara">
-<div class="box-acara fade-in-up">
-<div class="bingkai-emas">
-<h2 class="judul">Resepsi</h2>
-<p class="hari">RABU</p>
-    <h1 class="tanggal">08</h1>
-    <p class="bulan">OKTOBER 2025</p>
-    <p class="jam">08:00 WIB – Selesai</p>
-    <div class="ikon-rumah">-------🏠-------</div>
-    <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
-<a class="tombol-maps" href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank">
-        Lihat Lokasi
-    </a>
-</div>
+
+<!-- ACARA: Resepsi -->
+<section id="acara" style="position: relative;">
+  <div class="bg-static"></div>
+
+  <div class="box-acara fade-in-up">
+    <div class="bingkai-emas">
+      <h2 class="judul">Resepsi</h2>
+      <p class="hari">RABU</p>
+      <h1 class="tanggal">08</h1>
+      <p class="bulan">OKTOBER 2025</p>
+      <p class="jam">08:00 WIB – Selesai</p>
+      <div class="ikon-rumah">-------🏠-------</div>
+      <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
+      <a class="tombol-maps" href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank">Lihat Lokasi</a>
+    </div>
+  </div>
 </section>
+
    
 <!-- Galeri -->
 <section class="galeri-section">
