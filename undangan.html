@@ -160,12 +160,15 @@
     }
 /* SLIDE AYAT SECTION */
 .bg-ayat {
-  padding: 80px 20px;
   background-image: url('beground-galeri.png');
-  text-align: center;
-  background-size: contain;
+  background-repeat: no-repeat;
   background-position: top center;
- }
+  background-size: 100% auto;       /* ⬅️ lebar penuh, tinggi menyesuaikan */
+  max-height: 400px;                /* ⬅️ batasi tinggi agar tidak panjang */
+  padding: 100px 20px;              /* ⬅️ jarak isi ke atas/bawah */
+  text-align: center;
+  overflow: hidden;                 /* ⬅️ potong kelebihan background */
+}
 .ayat-slider {
   position: relative;
   min-height: 100vh;
