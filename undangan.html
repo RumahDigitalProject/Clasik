@@ -364,12 +364,12 @@
 .box-lokasi {
   background: #fff8ed;
   border: 2px solid #f3a302;
-  border-radius: 40px;
-  padding: 20px 30px;
-  margin: -20px auto 40px;
-  max-width: 360px;
+  border-radius: 999px;              /* 💡 Ujung sangat melengkung */
+  padding: 10px 20px;                /* 💡 Jarak isi */
+  margin: 20px auto 40px;            /* 💡 Jarak antar box */
+  max-width: 260px;                  /* 💡 Lebar lebih kecil */
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   font-family: Georgia, serif;
 }
 
@@ -377,16 +377,18 @@
   display: inline-block;
   background-color: #f3a302;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 999px;
+  padding: 8px 16px;
+  border-radius: 999px;              /* 💡 Tombol juga melengkung penuh */
   text-decoration: none;
   font-weight: bold;
+  font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
 
 .tombol-maps:hover {
   background-color: #d88e02;
 }
+
 
     /*GALERY*/
 .galeri-section {
