@@ -958,7 +958,7 @@
     <input type="text" id="nama" required />
 
     <label for="ucapan">Ucapan:</label>
-    <textarea id="ucapan" required></textarea>
+    <textarea id="pesanUcapan" required></textarea>
 
     <label for="kehadiran">Konfirmasi Kehadiran:</label>
     <select id="kehadiran" required>
@@ -1010,7 +1010,7 @@
         e.preventDefault();
 
         const nama = document.getElementById("nama").value.trim();
-        const ucapan = document.getElementById("ucapan").value.trim();
+        const ucapan = document.getElementById("pesanUcapan").value.trim();
         const kehadiran = document.getElementById("kehadiran").value;
 
         if (!nama || !ucapan || !kehadiran) {
@@ -1019,9 +1019,7 @@
         }
 
         const nomorWhatsApp = "6285706889273";
-        const pesan = `Halo, saya *${nama}*%0A` +
-                      `Ucapan: ${ucapan}%0A` +
-                      `Kehadiran: *${kehadiran}*`;
+        const pesan = `Halo, saya *${nama}*\nUcapan: ${ucapan}\nKehadiran: *${kehadiran}*`;
 
         const url = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
         window.open(url, "_blank");
