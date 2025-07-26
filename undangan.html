@@ -334,46 +334,6 @@
   justify-content: center;
   align-items: center;
 }
-
-.ucapan-box {
-  background: white;
-  padding: 40px 30px 80px;
-  max-width: 500px;
-  text-align: center;
-  border-radius: 40px 40px 80px 80px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  position: relative;
-}
-
-.countdown-grid {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.countdown-item {
-  background: #f7f7f7;
-  border-radius: 10px;
-  padding: 10px 5px;
-  width: 60px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  font-family: 'Poppins', sans-serif;
-}
-
-.count-number {
-  font-size: 22px;
-  font-weight: bold;
-  color: #333;
-}
-
-.count-label {
-  font-size: 13px;
-  color: #666;
-  margin-top: 4px;
-}
-
 .judul-acara {
   font-size: 16px;
   font-weight: 500;
@@ -392,36 +352,32 @@
 
 .countdown-grid {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* Tetap wrap kalau layar kecil */
+  justify-content: space-between;
   gap: 10px;
+  flex-wrap: nowrap; /* ⛔ Jangan biarkan membungkus ke bawah */
+  overflow-x: auto;   /* Kalau terlalu sempit, bisa digeser */
+  margin-bottom: 20px;
 }
 
 .countdown-item {
-  background: #f7f7f7;
-  border-radius: 10px;
-  padding: 10px 5px;
-  width: 40px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  font-family: 'Poppins', sans-serif;
+  background: #f8f8f8;
+  padding: 20px 10px;
+  border-radius: 20px;
+  text-align: center;
+  flex: 1 0 70px; /* ⬅ Biar semua item sempit tapi cukup */
+  max-width: 80px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .count-number {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
-  color: #333;
+  margin-bottom: 5px;
 }
 
 .count-label {
-  font-size: 13px;
-  color: #666;
-  margin-top: 4px;
-}
-
-.judul-acara {
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
+  font-size: 14px;
+  color: #555;
 }
 
 /* DATE*/
