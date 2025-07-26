@@ -277,7 +277,7 @@
 
 /* SIMBOL & DI TENGAH */
 .and-symbol {
-  font-size: 48px;
+  font-size: 58px;
   font-family: 'Great Vibes', cursive;
   margin: 20px;
   color: #f3a302; 
@@ -371,23 +371,15 @@
   pointer-events: none;
 }
 /*MAPS*/
-
-.tombol-maps {
-  display: inline-block;
-  background-color: #f3a302;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 999px;              /* 💡 Tombol juga melengkung penuh */
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
+.halaman-undangan {
+  opacity: 1;
+  transition: opacity 0.8s ease;
 }
 
-.tombol-maps:hover {
-  background-color: #d88e02;
+.halaman-undangan.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
-
 
     /*GALERY*/
 .galeri-section {
@@ -721,11 +713,7 @@
 </section>
 
 <!-- BOX TENGAH UNTUK TOMBOL LOKASI -->
-<div class="box-lokasi fade-in-up">
-  <a class="tombol-maps" href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank">
-    📍 Lihat Lokasi di Maps
-  </a>
-</div>
+<a href="#" class="btn-buka" onclick="tutupUndanganKeMaps()">📍 Lihat Lokasi Acara</a>
 
 <!-- ACARA: Resepsi -->
 <section id="acara" style="position: relative;">
@@ -805,7 +793,21 @@
 </div>
 </div>
 </footer>
+
 <script>
+  function tutupUndanganKeMaps() {
+    const undangan = document.querySelector('.halaman-undangan'); // ganti class sesuai elemen kamu
+    if (undangan) {
+      undangan.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9";
+      }, 1000); // tunggu 1 detik animasi, lalu redirect
+    } else {
+      // fallback kalau gak ketemu elemennya
+      window.location.href = "https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9";
+    }
+  }
+
   // ANIMASI SCROLL MASUK
   const animatedElements = [
   ...document.querySelectorAll('.pengantin'),
