@@ -284,40 +284,41 @@
 }
 
 /*HITUNG MUNDUR*/
-.countdown-wrapper {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
 
-  .countdown-box {
-    background: #f3f3f3;
-    border-radius: 12px;
-    padding: 20px 14px;
-    text-align: center;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  }
+.countdown-item {
+  background: #fef8f2;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  width: 60px;
+  padding: 10px 6px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-  .countdown-box span {
-    font-size: 28px;
-    font-weight: bold;
-    display: block;
-    color: #7b1f26;
-  }
+.count-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #7b1f26;
+}
 
-  .countdown-box label {
-    font-size: 14px;
-    color: #555;
-  }
+.count-label {
+  font-size: 12px;
+  color: #555;
+}
 
-  .teks-menuju {
-    font-size: 14px;
-    color: #777;
-    font-style: italic;
-    margin-top: 10px;
-  }
+.judul-acara {
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #7b1f26;
+}
 /* DATE*/
   .acara {
   background: #7b1f26 url('beground-date.png') no-repeat center center;
@@ -733,12 +734,12 @@
   </div>
 </section>
 
-<!-- Countdown dalam box putih -->
+<!-- Countdown Section -->
 <section id="ucapan">
-  <div class="ucapan-box">
-    <div class="countdown-wrapper">
-      <div class="countdown-box">
-         <div class="count-number" id="hari">00</div>
+  <div class="ucapan-box">
+    <div class="countdown-grid">
+      <div class="countdown-item">
+        <div class="count-number" id="hari">00</div>
         <div class="count-label">Hari</div>
       </div>
       <div class="countdown-item">
@@ -753,9 +754,10 @@
         <div class="count-number" id="detik">00</div>
         <div class="count-label">Detik</div>
       </div>
-    </div>
-    <p class="teks-menuju">Menuju hari acara</p>
-  </div>
+    </div>
+    <p class="judul-acara">Menuju Hari Acara</p>
+    <p class="judul-acara">07 OKTOBER 2025</p>
+  </div>
 </section>
 
 
