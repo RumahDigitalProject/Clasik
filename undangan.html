@@ -193,7 +193,7 @@
 
 /* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
 .bg-section-khusus {
-  background-image: url('background-khusus.jpg');
+  background-image: url('beground-khusus.png');
   background-repeat: repeat-y;
   background-size: contain;
   background-position: top center;
@@ -201,8 +201,18 @@
   padding: 80px 20px;
   margin-bottom: 0px;
   min-height: 100vh;
-
 }
+.box-putih-kecil {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 40px 24px;
+  margin: 0 auto;
+  max-width: 720px;
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
     /* ==== PENYESUAIAN BISMILLAH ==== */
 .bismillah {
   text-align: center;
@@ -267,24 +277,60 @@
 
 /* SIMBOL & DI TENGAH */
 .and-symbol {
-  font-size: 36px;
+  font-size: 58px;
   font-family: 'Great Vibes', cursive;
   margin: 20px;
-  color: #888;
+  color: #f3a302; 
+}
+
+/*HITUNG MUNDUR*/
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  background: #fef8f2;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  width: 60px;
+  padding: 10px 6px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.count-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: #7b1f26;
+}
+
+.count-label {
+  font-size: 12px;
+  color: #555;
+}
+
+.judul-acara {
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #7b1f26;
 }
 /* DATE*/
-  #acara {
+  .acara {
   background: #7b1f26 url('beground-date.png') no-repeat center center;
   background-size: cover;
   background-attachment: fixed; /* 🎯 INI YANG BIKIN BACKGROUND DIAM */
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
+  padding: 40px 20px;
   position: relative;
   z-index: 1;
-  }
+}
 .box-acara {
   background: #fef8f2 url('beground-date-tengah.png') no-repeat center;
   background-size: cover;
@@ -360,35 +406,27 @@
   z-index: -1;
   pointer-events: none;
 }
-/*MAPS*/
-.box-lokasi {
-  background: #fff8ed;
-  border: 2px solid #f3a302;
-  border-radius: 999px;              /* 💡 Ujung sangat melengkung */
-  padding: 10px 20px;                /* 💡 Jarak isi */
-  margin: 20px auto 40px;            /* 💡 Jarak antar box */
-  max-width: 190px;                  /* 💡 Lebar lebih kecil */
+/*MAPAS*/
+.tombol-maps {
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  font-family: Georgia, serif;
+  margin: 24px 0;
 }
 
-.tombol-maps {
+.tombol-maps a {
   display: inline-block;
-  background-color: #f3a302;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 999px;              /* 💡 Tombol juga melengkung penuh */
+  background-color: #d4af37;
+  color: white;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
   transition: background-color 0.3s ease;
 }
 
-.tombol-maps:hover {
-  background-color: #d88e02;
+.tombol-maps a:hover {
+  background-color: #b98e1f;
 }
-
 
     /*GALERY*/
 .galeri-section {
@@ -644,14 +682,6 @@
 <div>Kusumaningrum</div>
 </div>
 </div>
-<div class="countdown" id="hero-countdown">
-<div><span id="hari">00</span><small>Hari</small></div>
-<div><span id="jam">00</span><small>Jam</small></div>
-<div><span id="menit">00</span><small>Menit</small></div>
-<div><span id="detik">00</span><small>Detik</small></div>
-</div>
-<div class="tanggal" id="hero-tanggal">
-      Selasa, 7 Oktober 2025 • 08.00 WIB
     </div>
 </div>
 </div>
@@ -673,7 +703,8 @@
 </section>
    
 <!-- BAGIAN DENGAN BACKGROUND KHUSUS -->
-<div class="bg-section-khusus">
+<section class="bg-section-khusus">
+  <div class="box-putih-kecil">
 <!-- === BISMILLAH ARAB === -->
 <div class="bismillah">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
 <!-- === SALAM DAN KALIMAT UNDANGAN === -->
@@ -700,10 +731,37 @@
 <p class="orang-tua">Tulungrejo</p>
 </div>
 </div>
-</div>
+  </div>
+</section>
+
+<!-- Countdown Section -->
+<section id="ucapan">
+  <div class="ucapan-box">
+    <div class="countdown-grid">
+      <div class="countdown-item">
+        <div class="count-number" id="hari">00</div>
+        <div class="count-label">Hari</div>
+      </div>
+      <div class="countdown-item">
+        <div class="count-number" id="jam">00</div>
+        <div class="count-label">Jam</div>
+      </div>
+      <div class="countdown-item">
+        <div class="count-number" id="menit">00</div>
+        <div class="count-label">Menit</div>
+      </div>
+      <div class="countdown-item">
+        <div class="count-number" id="detik">00</div>
+        <div class="count-label">Detik</div>
+      </div>
+    </div>
+    <p class="judul-acara">Menuju Hari Acara</p>
+  </div>
+</section>
+
 
 <!-- ACARA: Akad -->
-<section id="acara" style="position: relative;">
+<section class="acara" style="position: relative;">
   <div class="bg-static"></div> <!-- 🎯 background diam hanya untuk section ini -->
 
   <div class="box-acara fade-in-up">
@@ -715,19 +773,18 @@
       <p class="jam">08:00 WIB – Selesai</p>
       <div class="ikon-rumah">-------🏠-------</div>
       <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
+      <!-- Tombol Maps untuk Akad -->
+      <div class="tombol-maps">
+        <a href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank" rel="noopener">📍 Lihat Maps</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- BOX TENGAH UNTUK TOMBOL LOKASI -->
-<div class="box-lokasi fade-in-up">
-  <a class="tombol-maps" href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank">
-    📍 Lihat Lokasi di Maps
-  </a>
-</div>
 
+   
 <!-- ACARA: Resepsi -->
-<section id="acara" style="position: relative;">
+<section class="acara" style="position: relative;">
   <div class="bg-static"></div>
 
   <div class="box-acara fade-in-up">
@@ -739,6 +796,10 @@
       <p class="jam">08:00 WIB – Selesai</p>
       <div class="ikon-rumah">-------🏠-------</div>
       <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
+      <!-- Tombol Maps untuk Resepsi -->
+      <div class="tombol-maps">
+        <a href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank" rel="noopener">📍 Lihat Maps</a>
+      </div>
     </div>
   </div>
 </section>
@@ -804,14 +865,14 @@
 </div>
 </div>
 </footer>
+
 <script>
-  // ANIMASI SCROLL MASUK
-  const animatedElements = [
+
+// ANIMASI SCROLL MASUK
+const animatedElements = [
   ...document.querySelectorAll('.pengantin'),
   ...document.querySelectorAll('.jadwal-box'),
   ...document.querySelectorAll('.ucapan-box'),
-  ...document.querySelectorAll('.ayat-slider'),
-  ...document.querySelectorAll('.ayat-slide'),
   ...document.querySelectorAll('.box-acara'),
   ...document.querySelectorAll('.salam-undangan'),
   ...document.querySelectorAll('.bismillah'),
@@ -822,119 +883,101 @@
   ...document.querySelectorAll('.ucapan-nama')
 ];
 
-  animatedElements.forEach((el, i) => {
-    const delayClass = i % 3 === 0 ? 'staggered-delay' : i % 3 === 1 ? 'staggered-delay-2' : 'staggered-delay-3';
+animatedElements.forEach((el, i) => {
+  const delayClass = i % 3 === 0 ? 'staggered-delay' : i % 3 === 1 ? 'staggered-delay-2' : 'staggered-delay-3';
+  if (el.classList.contains('pengantin')) {
+    el.classList.add('zoom-in', delayClass);
+  } else {
+    el.classList.add('fade-in-up', delayClass);
+  }
+});
 
-    if (el.classList.contains('pengantin')) {
-      el.classList.add('zoom-in', delayClass);
-    } else {
-      el.classList.add('fade-in-up', delayClass);
-    }
-  });
+const galeriItems = document.querySelectorAll('.galeri-item');
+galeriItems.forEach((item, i) => {
+  item.classList.add(i % 2 === 0 ? 'fade-in-left' : 'fade-in-right');
+});
 
-  // Tambahkan animasi fade dari kanan/kiri ke galeri secara bergantian
-  const galeriItems = document.querySelectorAll('.galeri-item');
-  galeriItems.forEach((item, i) => {
-    item.classList.add(i % 2 === 0 ? 'fade-in-left' : 'fade-in-right');
-  });
-
-  // Observer animasi scroll
-  
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
     } else {
-      entry.target.classList.remove('show'); // biar bisa muncul dua kali
+      entry.target.classList.remove('show');
     }
   });
 }, { threshold: 0.15 });
 
+[...animatedElements, ...galeriItems].forEach(el => observer.observe(el));
 
-  [...animatedElements, ...galeriItems].forEach(el => observer.observe(el));
+// ANIMASI HERO (satu kali saat load)
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => document.getElementById('hero-title')?.classList.add('fade-in-down', 'show'), 200);
+  setTimeout(() => document.getElementById('hero-nama')?.classList.add('fade-in-up', 'show'), 600);
+  setTimeout(() => document.getElementById('hero-countdown')?.classList.add('zoom-in', 'show'), 1000);
+  setTimeout(() => document.getElementById('hero-tanggal')?.classList.add('fade-in-up', 'show'), 1400);
+});
 
-  // ANIMASI HERO (satu kali saat load)
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => document.getElementById('hero-title')?.classList.add('fade-in-down', 'show'), 200);
-    setTimeout(() => document.getElementById('hero-nama')?.classList.add('fade-in-up', 'show'), 600);
-    setTimeout(() => document.getElementById('hero-countdown')?.classList.add('zoom-in', 'show'), 1000);
-    setTimeout(() => document.getElementById('hero-tanggal')?.classList.add('fade-in-up', 'show'), 1400);
+// MUSIK LATAR DAN COUNTDOWN
+const audio = document.getElementById('bg-music');
+
+window.addEventListener('load', () => {
+  audio.play().catch((err) => {
+    console.warn("Autoplay gagal, browser butuh interaksi pengguna.", err);
   });
+});
 
-// Script pergantian slide ayat otomatis 
-  const slides = document.querySelectorAll('.ayat-slide');
-  let currentSlide = 0;
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+});
 
-  setInterval(() => {
-    slides[currentSlide].classList.remove('active');
+window.addEventListener('blur', () => {
+  audio.pause();
+});
 
-    // geser ke slide berikutnya
-    currentSlide = (currentSlide + 1) % slides.length;
+window.addEventListener('focus', () => {
+  audio.play();
+});
 
-    slides[currentSlide].classList.add('active');
-  }, 7000); // ganti setiap 7 detik
-  
-  // Script Musik dan Countdown
-    const audio = document.getElementById('bg-music');
+// COUNTDOWN UTAMA (DIGUNAKAN DI BOX UCAPAN)
+const targetDate = new Date("2025-10-07T08:00:00").getTime();
 
-    window.addEventListener('load', () => {
-      audio.play().catch((err) => {
-        console.warn("Autoplay gagal, browser butuh interaksi pengguna.", err);
-      });
-    });
+setInterval(() => {
+  const now = new Date().getTime();
+  const selisih = targetDate - now;
 
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    });
+  const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+  const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+  const detik = Math.floor((selisih % (1000 * 60)) / 1000);
 
-    window.addEventListener('blur', () => {
-      audio.pause();
-    });
+  document.getElementById("hari").innerText = hari.toString().padStart(2, '0');
+  document.getElementById("jam").innerText = jam.toString().padStart(2, '0');
+  document.getElementById("menit").innerText = menit.toString().padStart(2, '0');
+  document.getElementById("detik").innerText = detik.toString().padStart(2, '0');
+}, 1000);
 
-    window.addEventListener('focus', () => {
-      audio.play();
-    });
-
-    const targetDate = new Date("2025-10-07T08:00:00").getTime();
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const selisih = targetDate - now;
-
-      const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-      const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
-      const detik = Math.floor((selisih % (1000 * 60)) / 1000);
-
-      document.getElementById("hari").innerText = hari.toString().padStart(2, '0');
-      document.getElementById("jam").innerText = jam.toString().padStart(2, '0');
-      document.getElementById("menit").innerText = menit.toString().padStart(2, '0');
-      document.getElementById("detik").innerText = detik.toString().padStart(2, '0');
-    }, 1000);
-  </script>
-<script>
-// Hero section animation on page load
+// HERO SECTION ANIMASI
 window.addEventListener('load', () => {
   const heroTitle = document.getElementById('hero-title');
   const heroNama = document.getElementById('hero-nama');
   const heroCountdown = document.getElementById('hero-countdown');
   const heroTanggal = document.getElementById('hero-tanggal');
 
-  // Tambahkan class animasi
   heroTitle?.classList.add('fade-in-down');
   heroNama?.classList.add('fade-in-up');
   heroCountdown?.classList.add('zoom-in');
   heroTanggal?.classList.add('fade-in-up');
 
-  // Show animasi bertahap
   setTimeout(() => heroTitle?.classList.add('show'), 200);
   setTimeout(() => heroNama?.classList.add('show'), 600);
   setTimeout(() => heroCountdown?.classList.add('show'), 1000);
   setTimeout(() => heroTanggal?.classList.add('show'), 1400);
 });
-</script></body>
+
+</script>
+</body>
    </html>
