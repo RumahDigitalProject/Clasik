@@ -319,6 +319,41 @@
   font-weight: bold;
   color: #7b1f26;
 }
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* biar responsif */
+}
+
+.countdown-item {
+  text-align: center;
+  width: 60px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.countdown-angka {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.countdown-label {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.menuju-acara {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
 /* DATE*/
   .acara {
   background: #7b1f26 url('beground-date.png') no-repeat center center;
@@ -734,30 +769,31 @@
   </div>
 </section>
 
-<!-- Countdown Section -->
-<section id="ucapan">
-  <div class="ucapan-box">
-    <div class="countdown-grid">
-      <div class="countdown-item">
-        <div class="count-number" id="hari">00</div>
-        <div class="count-label">Hari</div>
-      </div>
-      <div class="countdown-item">
-        <div class="count-number" id="jam">00</div>
-        <div class="count-label">Jam</div>
-      </div>
-      <div class="countdown-item">
-        <div class="count-number" id="menit">00</div>
-        <div class="count-label">Menit</div>
-      </div>
-      <div class="countdown-item">
-        <div class="count-number" id="detik">00</div>
-        <div class="count-label">Detik</div>
-      </div>
-    </div>
-    <p class="judul-acara">Menuju Hari Acara</p>
-  </div>
+<!--Coudown-->
+<section id="Ayat">
+  <div class="ucapan-box">
+    <div class="countdown-container">
+      <div class="countdown-item">
+        <div id="hari" class="countdown-angka">00</div>
+        <div class="countdown-label">Hari</div>
+      </div>
+      <div class="countdown-item">
+        <div id="jam" class="countdown-angka">00</div>
+        <div class="countdown-label">Jam</div>
+      </div>
+      <div class="countdown-item">
+        <div id="menit" class="countdown-angka">00</div>
+        <div class="countdown-label">Menit</div>
+      </div>
+      <div class="countdown-item">
+        <div id="detik" class="countdown-angka">00</div>
+        <div class="countdown-label">Detik</div>
+      </div>
+    </div>
+    <p class="menuju-acara">Menuju Hari Acara</p>
+  </div>
 </section>
+
 
 
 <!-- ACARA: Akad -->
