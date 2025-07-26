@@ -159,6 +159,16 @@
       font-family: 'Poppins', sans-serif;
     }
 /* BAGIAN AYAT AL-QURAN */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 .ayat-quran {
   background: #fef8f2 url('beground-galeri.png') no-repeat top center;
   background-size: 100% auto;
