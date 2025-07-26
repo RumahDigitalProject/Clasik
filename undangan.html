@@ -372,26 +372,25 @@
 }
 /*MAPAS*/
 .tombol-maps {
-  text-align: center;
-  margin: 30px 0;
+  text-align: center;
+  margin: 24px 0;
 }
 
 .tombol-maps a {
-  display: inline-block;
-  background-color: #d4af37;
-  color: white;
-  text-decoration: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 14px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-  transition: background-color 0.3s ease;
+  display: inline-block;
+  background-color: #d4af37;
+  color: white;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
 }
 
 .tombol-maps a:hover {
-  background-color: #b98e1f;
+  background-color: #b98e1f;
 }
-
 
     /*GALERY*/
 .galeri-section {
@@ -707,44 +706,49 @@
   </div>
 </section>
 
-<!-- ACARA: Akad + Tombol + Resepsi dalam 1 section -->
+<!-- ACARA: Akad -->
 <section id="acara" style="position: relative;">
-  <div class="bg-static"></div> <!-- background hitam -->
+  <div class="bg-static"></div> <!-- 🎯 background diam hanya untuk section ini -->
 
-  <!-- Box Akad -->
-  <div class="box-acara fade-in-up">
-    <div class="bingkai-emas">
-      <h2 class="judul">Akad Nikah</h2>
-      <p class="hari">SELASA</p>
-      <h1 class="tanggal">07</h1>
-      <p class="bulan">OKTOBER 2025</p>
-      <p class="jam">08:00 WIB – Selesai</p>
-      <div class="ikon-rumah">-------🏠-------</div>
-      <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
-    </div>
-  </div>
-
-  <!-- TOMBOL DI TENGAH -->
-  <div class="tombol-maps fade-in-up">
-    <a href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank" rel="noopener">
-      📍 Lihat Maps
-    </a>
-  </div>
-
-  <!-- Box Resepsi -->
-  <div class="box-acara fade-in-up">
-    <div class="bingkai-emas">
-      <h2 class="judul">Resepsi</h2>
-      <p class="hari">RABU</p>
-      <h1 class="tanggal">08</h1>
-      <p class="bulan">OKTOBER 2025</p>
-      <p class="jam">08:00 WIB – Selesai</p>
-      <div class="ikon-rumah">-------🏠-------</div>
-      <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
-    </div>
-  </div>
+  <div class="box-acara fade-in-up">
+    <div class="bingkai-emas">
+      <h2 class="judul">Akad Nikah</h2>
+      <p class="hari">SELASA</p>
+      <h1 class="tanggal">07</h1>
+      <p class="bulan">OKTOBER 2025</p>
+      <p class="jam">08:00 WIB – Selesai</p>
+      <div class="ikon-rumah">-------🏠-------</div>
+      <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
+      <!-- Tombol Maps untuk Akad -->
+      <div class="tombol-maps">
+        <a href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank" rel="noopener">📍 Lihat Maps</a>
+      </div>
+    </div>
+  </div>
 </section>
 
+
+   
+<!-- ACARA: Resepsi -->
+<section id="acara" style="position: relative;">
+  <div class="bg-static"></div>
+
+  <div class="box-acara fade-in-up">
+    <div class="bingkai-emas">
+      <h2 class="judul">Resepsi</h2>
+      <p class="hari">RABU</p>
+      <h1 class="tanggal">08</h1>
+      <p class="bulan">OKTOBER 2025</p>
+      <p class="jam">08:00 WIB – Selesai</p>
+      <div class="ikon-rumah">-------🏠-------</div>
+      <p class="lokasi">Desa Tulungrejo RT 02 / RW 02</p>
+      <!-- Tombol Maps untuk Resepsi -->
+      <div class="tombol-maps">
+        <a href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank" rel="noopener">📍 Lihat Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
 
    
 <!-- Galeri -->
@@ -954,4 +958,4 @@ window.addEventListener('load', () => {
   setTimeout(() => heroTanggal?.classList.add('show'), 1400);
 });
 </script></body>
-                                      </html>
+   </html>
