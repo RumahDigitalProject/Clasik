@@ -360,6 +360,34 @@
   z-index: -1;
   pointer-events: none;
 }
+/*MAPS*/
+.box-lokasi {
+  background: #fff8ed;
+  border: 2px solid #f3a302;
+  border-radius: 40px;
+  padding: 20px 30px;
+  margin: -20px auto 40px;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  font-family: Georgia, serif;
+}
+
+.tombol-maps {
+  display: inline-block;
+  background-color: #f3a302;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.tombol-maps:hover {
+  background-color: #d88e02;
+}
+
     /*GALERY*/
 .galeri-section {
   padding: 60px 20px;
@@ -689,6 +717,12 @@
   </div>
 </section>
 
+<!-- BOX TENGAH UNTUK TOMBOL LOKASI -->
+<div class="box-lokasi fade-in-up">
+  <a class="tombol-maps" href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank">
+    📍 Lihat Lokasi di Google Maps
+  </a>
+</div>
 
 <!-- ACARA: Resepsi -->
 <section id="acara" style="position: relative;">
