@@ -988,8 +988,7 @@ const observer = new IntersectionObserver(entries => {
       document.getElementById("menit").innerText = menit.toString().padStart(2, '0');
       document.getElementById("detik").innerText = detik.toString().padStart(2, '0');
     }, 1000);
-  </script>
-<script>
+  
 // Hero section animation on page load
 window.addEventListener('load', () => {
   const heroTitle = document.getElementById('hero-title');
@@ -1009,5 +1008,6 @@ window.addEventListener('load', () => {
   setTimeout(() => heroCountdown?.classList.add('show'), 1000);
   setTimeout(() => heroTanggal?.classList.add('show'), 1400);
 });
-</script></body>
+</script>
+</body>
    </html>
