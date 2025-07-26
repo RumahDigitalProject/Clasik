@@ -6,6 +6,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://fonts.googleapis.com/css2?family=Amiri&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 <title>Undangan</title>
 <style>
     * {
@@ -959,7 +960,7 @@
 
 <!-- RSVP Section -->
 <section id="rsvp" data-aos="fade-up">
-  <h2>Konfirmasi Kehadiran</h2>
+  <h2>Wishes</h2>
   <form id="rsvpForm">
     <label>Nama:</label>
     <input type="text" id="nama" required />
@@ -1015,7 +1016,7 @@
     const ucapan = document.getElementById('ucapan').value;
     const kehadiran = document.getElementById('kehadiran').value;
 
-    const nomorWhatsApp = '6281234567890'; // Ganti nomor tujuan
+    const nomorWhatsApp = '6285706889273'; // Ganti nomor tujuan
     const pesan = `Halo! Saya *${nama}*\nUcapan: ${ucapan}\nKonfirmasi: *${kehadiran}*`;
     const url = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
 
