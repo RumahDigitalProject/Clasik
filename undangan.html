@@ -193,7 +193,7 @@
 
 /* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
 .bg-section-khusus {
-  background-image: url('background-khusus.jpg');
+  background-image: url('beground-khusus.png');
   background-repeat: repeat-y;
   background-size: contain;
   background-position: top center;
@@ -282,6 +282,35 @@
   margin: 20px;
   color: #f3a302; 
 }
+
+/*HITUNG MUNDUR*/
+  .countdown-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-box {
+    background: #f3f3f3;
+    border-radius: 12px;
+    padding: 20px 14px;
+    min-width: 70px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  }
+
+  .countdown-box span {
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+    color: #7b1f26;
+  }
+
+  .countdown-box label {
+    font-size: 14px;
+    color: #555;
+  }
 /* DATE*/
   .acara {
   background: #7b1f26 url('beground-date.png') no-repeat center center;
@@ -702,6 +731,30 @@
 <p class="orang-tua">Tulungrejo</p>
 </div>
 </div>
+  </div>
+</section>
+
+<!-- Countdown dalam box putih -->
+<section id="Ayat">
+  <div class="ucapan-box">
+    <div class="countdown-wrapper">
+      <div class="countdown-box">
+        <span id="days">00</span>
+        <label>Hari</label>
+      </div>
+      <div class="countdown-box">
+        <span id="hours">00</span>
+        <label>Jam</label>
+      </div>
+      <div class="countdown-box">
+        <span id="minutes">00</span>
+        <label>Menit</label>
+      </div>
+      <div class="countdown-box">
+        <span id="seconds">00</span>
+        <label>Detik</label>
+      </div>
+    </div>
   </div>
 </section>
 
