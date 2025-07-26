@@ -644,12 +644,12 @@
 
 /* RSVP SECTION */
   #rsvp {
-    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    background: linear-gradient(to right, #ffffff, #f9f9f9);
     padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     max-width: 600px;
-    margin: 50px auto;
+    margin: 60px auto;
     font-family: 'Segoe UI', sans-serif;
   }
 
@@ -662,9 +662,9 @@
 
   #rsvp label {
     font-weight: 600;
-    display: block;
     margin-bottom: 6px;
-    color: #444;
+    display: block;
+    color: #555;
   }
 
   #rsvp input,
@@ -676,18 +676,19 @@
     border: 1px solid #ccc;
     margin-bottom: 20px;
     font-size: 16px;
+    box-sizing: border-box;
   }
 
   #rsvp button {
     width: 100%;
     padding: 14px;
-    border: none;
     background: #28a745;
     color: white;
     font-size: 18px;
+    border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
   }
 
   #rsvp button:hover {
@@ -699,7 +700,7 @@
       margin: 20px;
       padding: 30px 20px;
     }
-     }
+  }
    
 /* Animasi Umum */
 .fade-in-up {
@@ -959,16 +960,25 @@
 </section>
 
 <!-- RSVP Section -->
-<form id="rsvpForm">
-  <input type="text" id="nama" placeholder="Nama" required />
-  <textarea id="ucapan" placeholder="Ucapan" required></textarea>
-  <select id="kehadiran" required>
-    <option value="">-- Pilih Kehadiran --</option>
-    <option value="Hadir">Hadir</option>
-    <option value="Tidak Hadir">Tidak Hadir</option>
-  </select>
-  <button type="submit">Kirim ke WhatsApp</button>
-</form>
+<section id="rsvp" data-aos="fade-up">
+  <h2>Konfirmasi Kehadiran</h2>
+  <form id="rsvpForm">
+    <label for="nama">Nama:</label>
+    <input type="text" id="nama" required />
+
+    <label for="ucapan">Ucapan:</label>
+    <textarea id="ucapan" rows="4" required></textarea>
+
+    <label for="kehadiran">Konfirmasi Kehadiran:</label>
+    <select id="kehadiran" required>
+      <option value="">-- Pilih --</option>
+      <option value="Hadir">Hadir</option>
+      <option value="Tidak Hadir">Tidak Hadir</option>
+    </select>
+
+    <button type="submit">Kirim ke WhatsApp</button>
+  </form>
+</section>
 
 
    
@@ -997,29 +1007,29 @@
 </div>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-  document.getElementById('rsvpForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // MENCEGAH form reload halaman
+  AOS.init();
 
-    const nama = document.getElementById('nama').value.trim();
-    const ucapan = document.getElementById('ucapan').value.trim();
-    const kehadiran = document.getElementById('kehadiran').value;
+  document.getElementById("rsvpForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    // Pastikan variabel TIDAK KOSONG
+    const nama = document.getElementById("nama").value.trim();
+    const ucapan = document.getElementById("ucapan").value.trim();
+    const kehadiran = document.getElementById("kehadiran").value;
+
     if (!nama || !ucapan || !kehadiran) {
-      alert("Isi semua kolom terlebih dahulu!");
+      alert("Isi semua kolom terlebih dahulu.");
       return;
     }
 
-    const nomorWhatsApp = "6285706889273"; // Ganti dengan nomormu
-
+    const nomorWhatsApp = "6285706889273"; // Ganti dengan nomor tujuan
     const pesan = `Halo, saya *${nama}*%0A` +
                   `Ucapan: ${ucapan}%0A` +
                   `Kehadiran: *${kehadiran}*`;
 
     const url = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
-
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   });
 
    
