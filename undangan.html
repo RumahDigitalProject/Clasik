@@ -203,7 +203,7 @@
   min-height: 100vh;
 }
 .box-putih-kecil {
-  background: rgba(255, 255, 255, 0.60);
+  background: rgba(255, 255, 255, 0.75);
   padding: 40px 24px;
   margin: 0 auto;
   max-width: 720px;
@@ -874,28 +874,12 @@
 </footer>
 
 <script>
-       
 
-  function tutupUndanganKeMaps() {
-    const undangan = document.querySelector('.halaman-undangan'); // ganti class sesuai elemen kamu
-    if (undangan) {
-      undangan.classList.add('fade-out');
-      setTimeout(() => {
-        window.location.href = "https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9";
-      }, 1000); // tunggu 1 detik animasi, lalu redirect
-    } else {
-      // fallback kalau gak ketemu elemennya
-      window.location.href = "https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9";
-    }
-  }
-
-  // ANIMASI SCROLL MASUK
-  const animatedElements = [
+// ANIMASI SCROLL MASUK
+const animatedElements = [
   ...document.querySelectorAll('.pengantin'),
   ...document.querySelectorAll('.jadwal-box'),
   ...document.querySelectorAll('.ucapan-box'),
-  ...document.querySelectorAll('.ayat-slider'),
-  ...document.querySelectorAll('.ayat-slide'),
   ...document.querySelectorAll('.box-acara'),
   ...document.querySelectorAll('.salam-undangan'),
   ...document.querySelectorAll('.bismillah'),
@@ -906,119 +890,101 @@
   ...document.querySelectorAll('.ucapan-nama')
 ];
 
-  animatedElements.forEach((el, i) => {
-    const delayClass = i % 3 === 0 ? 'staggered-delay' : i % 3 === 1 ? 'staggered-delay-2' : 'staggered-delay-3';
+animatedElements.forEach((el, i) => {
+  const delayClass = i % 3 === 0 ? 'staggered-delay' : i % 3 === 1 ? 'staggered-delay-2' : 'staggered-delay-3';
+  if (el.classList.contains('pengantin')) {
+    el.classList.add('zoom-in', delayClass);
+  } else {
+    el.classList.add('fade-in-up', delayClass);
+  }
+});
 
-    if (el.classList.contains('pengantin')) {
-      el.classList.add('zoom-in', delayClass);
-    } else {
-      el.classList.add('fade-in-up', delayClass);
-    }
-  });
+const galeriItems = document.querySelectorAll('.galeri-item');
+galeriItems.forEach((item, i) => {
+  item.classList.add(i % 2 === 0 ? 'fade-in-left' : 'fade-in-right');
+});
 
-  // Tambahkan animasi fade dari kanan/kiri ke galeri secara bergantian
-  const galeriItems = document.querySelectorAll('.galeri-item');
-  galeriItems.forEach((item, i) => {
-    item.classList.add(i % 2 === 0 ? 'fade-in-left' : 'fade-in-right');
-  });
-
-  // Observer animasi scroll
-  
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
     } else {
-      entry.target.classList.remove('show'); // biar bisa muncul dua kali
+      entry.target.classList.remove('show');
     }
   });
 }, { threshold: 0.15 });
 
+[...animatedElements, ...galeriItems].forEach(el => observer.observe(el));
 
-  [...animatedElements, ...galeriItems].forEach(el => observer.observe(el));
+// ANIMASI HERO (satu kali saat load)
+window.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => document.getElementById('hero-title')?.classList.add('fade-in-down', 'show'), 200);
+  setTimeout(() => document.getElementById('hero-nama')?.classList.add('fade-in-up', 'show'), 600);
+  setTimeout(() => document.getElementById('hero-countdown')?.classList.add('zoom-in', 'show'), 1000);
+  setTimeout(() => document.getElementById('hero-tanggal')?.classList.add('fade-in-up', 'show'), 1400);
+});
 
-  // ANIMASI HERO (satu kali saat load)
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => document.getElementById('hero-title')?.classList.add('fade-in-down', 'show'), 200);
-    setTimeout(() => document.getElementById('hero-nama')?.classList.add('fade-in-up', 'show'), 600);
-    setTimeout(() => document.getElementById('hero-countdown')?.classList.add('zoom-in', 'show'), 1000);
-    setTimeout(() => document.getElementById('hero-tanggal')?.classList.add('fade-in-up', 'show'), 1400);
+// MUSIK LATAR DAN COUNTDOWN
+const audio = document.getElementById('bg-music');
+
+window.addEventListener('load', () => {
+  audio.play().catch((err) => {
+    console.warn("Autoplay gagal, browser butuh interaksi pengguna.", err);
   });
+});
 
-// Script pergantian slide ayat otomatis 
-  const slides = document.querySelectorAll('.ayat-slide');
-  let currentSlide = 0;
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+});
 
-  setInterval(() => {
-    slides[currentSlide].classList.remove('active');
+window.addEventListener('blur', () => {
+  audio.pause();
+});
 
-    // geser ke slide berikutnya
-    currentSlide = (currentSlide + 1) % slides.length;
+window.addEventListener('focus', () => {
+  audio.play();
+});
 
-    slides[currentSlide].classList.add('active');
-  }, 7000); // ganti setiap 7 detik
-  
-  // Script Musik dan Countdown
-    const audio = document.getElementById('bg-music');
+// COUNTDOWN UTAMA (DIGUNAKAN DI BOX UCAPAN)
+const targetDate = new Date("2025-10-07T08:00:00").getTime();
 
-    window.addEventListener('load', () => {
-      audio.play().catch((err) => {
-        console.warn("Autoplay gagal, browser butuh interaksi pengguna.", err);
-      });
-    });
+setInterval(() => {
+  const now = new Date().getTime();
+  const selisih = targetDate - now;
 
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    });
+  const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
+  const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
+  const detik = Math.floor((selisih % (1000 * 60)) / 1000);
 
-    window.addEventListener('blur', () => {
-      audio.pause();
-    });
+  document.getElementById("hari").innerText = hari.toString().padStart(2, '0');
+  document.getElementById("jam").innerText = jam.toString().padStart(2, '0');
+  document.getElementById("menit").innerText = menit.toString().padStart(2, '0');
+  document.getElementById("detik").innerText = detik.toString().padStart(2, '0');
+}, 1000);
 
-    window.addEventListener('focus', () => {
-      audio.play();
-    });
-
-    const targetDate = new Date("2025-10-07T08:00:00").getTime();
-
-    setInterval(() => {
-      const now = new Date().getTime();
-      const selisih = targetDate - now;
-
-      const hari = Math.floor(selisih / (1000 * 60 * 60 * 24));
-      const jam = Math.floor((selisih % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const menit = Math.floor((selisih % (1000 * 60 * 60)) / (1000 * 60));
-      const detik = Math.floor((selisih % (1000 * 60)) / 1000);
-
-      document.getElementById("hari").innerText = hari.toString().padStart(2, '0');
-      document.getElementById("jam").innerText = jam.toString().padStart(2, '0');
-      document.getElementById("menit").innerText = menit.toString().padStart(2, '0');
-      document.getElementById("detik").innerText = detik.toString().padStart(2, '0');
-    }, 1000);
-  
-// Hero section animation on page load
+// HERO SECTION ANIMASI
 window.addEventListener('load', () => {
   const heroTitle = document.getElementById('hero-title');
   const heroNama = document.getElementById('hero-nama');
   const heroCountdown = document.getElementById('hero-countdown');
   const heroTanggal = document.getElementById('hero-tanggal');
 
-  // Tambahkan class animasi
   heroTitle?.classList.add('fade-in-down');
   heroNama?.classList.add('fade-in-up');
   heroCountdown?.classList.add('zoom-in');
   heroTanggal?.classList.add('fade-in-up');
 
-  // Show animasi bertahap
   setTimeout(() => heroTitle?.classList.add('show'), 200);
   setTimeout(() => heroNama?.classList.add('show'), 600);
   setTimeout(() => heroCountdown?.classList.add('show'), 1000);
   setTimeout(() => heroTanggal?.classList.add('show'), 1400);
 });
+
 </script>
 </body>
    </html>
