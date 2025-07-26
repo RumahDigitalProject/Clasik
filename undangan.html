@@ -372,20 +372,21 @@
 }
 /*MAPAS*/
 .tombol-maps {
-  text-align: center;
-  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  margin: 16px auto;
 }
 
 .tombol-maps button {
   background-color: #d4af37;
   color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 20px;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .tombol-maps button:hover {
@@ -725,9 +726,7 @@
 
 <!-- TOMBOL MAPS -->
 <div class="tombol-maps fade-in-up">
-  <a href="https://www.google.com/maps/place/Desa+Tulungrejo" target="_blank">
-    <button>Lihat Lokasi di Google Maps 📍</button>
-  </a>
+  <button onclick="tutupUndanganKeMaps()">📍 Maps</button>
 </div>
    
 <!-- ACARA: Resepsi -->
