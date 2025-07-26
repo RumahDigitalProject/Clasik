@@ -372,24 +372,23 @@
 }
 /*MAPAS*/
 .tombol-maps {
-  display: flex;
-  justify-content: center;
-  margin: 16px auto;
+  text-align: center;
+  margin: 24px 0;
 }
 
-.tombol-maps button {
+.tombol-maps a {
+  display: inline-block;
   background-color: #d4af37;
   color: white;
-  border: none;
-  padding: 8px 16px;
-  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 18px;
   border-radius: 20px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
   transition: background-color 0.3s ease;
 }
 
-.tombol-maps button:hover {
+.tombol-maps a:hover {
   background-color: #b98e1f;
 }
 
@@ -724,10 +723,13 @@
   </div>
 </section>
 
-<!-- TOMBOL MAPS -->
-<div class="tombol-maps fade-in-up">
-  <button onclick="tutupUndanganKeMaps()">📍 Maps</button>
+<!-- Tombol Maps -->
+<div class="tombol-maps">
+  <a href="https://maps.app.goo.gl/2V8rYx2Y5ag4q1NL9" target="_blank" rel="noopener">
+    📍 <span>Lihat Maps</span>
+  </a>
 </div>
+
    
 <!-- ACARA: Resepsi -->
 <section id="acara" style="position: relative;">
