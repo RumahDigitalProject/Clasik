@@ -967,7 +967,7 @@
     <input type="text" id="nama" required />
 
     <label for="ucapan">Ucapan:</label>
-    <textarea id="ucapan" rows="4" required></textarea>
+    <textarea id="ucapan" required></textarea>
 
     <label for="kehadiran">Konfirmasi Kehadiran:</label>
     <select id="kehadiran" required>
@@ -1011,25 +1011,30 @@
 <script>
   AOS.init();
 
-  document.getElementById("rsvpForm").addEventListener("submit", function (e) {
-    e.preventDefault();
+  // Tunggu sampai semua DOM selesai dimuat
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById("rsvpForm");
 
-    const nama = document.getElementById("nama").value.trim();
-    const ucapan = document.getElementById("ucapan").value.trim();
-    const kehadiran = document.getElementById("kehadiran").value;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Cegah reload
 
-    if (!nama || !ucapan || !kehadiran) {
-      alert("Isi semua kolom terlebih dahulu.");
-      return;
-    }
+      const nama = document.getElementById("nama").value.trim();
+      const ucapan = document.getElementById("ucapan").value.trim();
+      const kehadiran = document.getElementById("kehadiran").value;
 
-    const nomorWhatsApp = "6285706889273"; // Ganti dengan nomor tujuan
-    const pesan = `Halo, saya *${nama}*%0A` +
-                  `Ucapan: ${ucapan}%0A` +
-                  `Kehadiran: *${kehadiran}*`;
+      if (!nama || !ucapan || !kehadiran) {
+        alert("Isi semua kolom terlebih dahulu!");
+        return;
+      }
 
-    const url = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
-    window.open(url, "_blank");
+      const nomorWhatsApp = "6285706889273"; // Ganti dengan nomormu
+      const pesan = `Halo, saya *${nama}*%0A` +
+                    `Ucapan: ${ucapan}%0A` +
+                    `Kehadiran: *${kehadiran}*`;
+
+      const url = `https://wa.me/${nomorWhatsApp}?text=${encodeURIComponent(pesan)}`;
+      window.open(url, "_blank");
+    });
   });
 
    
