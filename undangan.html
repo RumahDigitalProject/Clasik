@@ -640,6 +640,80 @@
   font-size: 28px;
   color: #d63384;
 }
+
+/* RSVP */
+#rsvp {
+  background: url('saya.webp') center center no-repeat;
+  background-size: cover;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rsvp-wrapper {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 30px;
+  border-radius: 30px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.rsvp-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #7b1f26;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+#rsvpForm input,
+#rsvpForm textarea {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: 'Poppins', sans-serif;
+}
+
+#rsvpForm button {
+  width: 100%;
+  padding: 12px;
+  background: #d4af37;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+#rsvpForm button:hover {
+  background: #b8921c;
+}
+
+.ucapan-list {
+  margin-top: 30px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.ucapan-item {
+  background: #fff8ed;
+  border-left: 4px solid #f3a302;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.ucapan-item .nama {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+   
 /* Animasi Umum */
 .fade-in-up {
   opacity: 0;
@@ -897,6 +971,21 @@
 </div>
 </section>
 
+<!-- RSVP Section -->
+<section id="rsvp" class="fade-in-up">
+  <div class="rsvp-wrapper">
+    <div class="rsvp-box">
+      <h2 class="rsvp-title">Kirim Ucapan</h2>
+      <form id="rsvpForm">
+        <input type="text" id="nama" placeholder="Nama Kamu" required />
+        <textarea id="pesan" placeholder="Ucapan & Doa" required></textarea>
+        <button type="submit">Kirim</button>
+      </form>
+      <div id="ucapanList" class="ucapan-list"></div>
+    </div>
+  </div>
+</section>
+
    
 <!--Penutup-->
 <section id="ucapan">
@@ -923,7 +1012,27 @@
 </footer>
 
 <script>
+   
+// RSVP
+document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+  e.preventDefault();
 
+  const nama = document.getElementById('nama').value.trim();
+  const pesan = document.getElementById('pesan').value.trim();
+
+  if (nama && pesan) {
+    const list = document.getElementById('ucapanList');
+    const item = document.createElement('div');
+    item.className = 'ucapan-item';
+    item.innerHTML = `<div class="nama">${nama}</div><div class="pesan">${pesan}</div>`;
+    list.prepend(item);
+
+    // Reset form
+    this.reset();
+  }
+});
+
+   
 // ANIMASI SCROLL MASUK
 const animatedElements = [
   ...document.querySelectorAll('.pengantin'),
