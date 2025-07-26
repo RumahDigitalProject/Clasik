@@ -641,110 +641,77 @@
   color: #d63384;
 }
 
-/* RSVP */
-#rsvp-section {
-  background-color: #7b1e27;
-  color: #000;
+/* RSVP SECTION */
+#rsvp {
   padding: 60px 20px;
-  background-size: cover;
-  background-position: center;
+  background: #b20000; /* Merah elegan */
+  color: black;
 }
 
-.rsvp-box {
-  background: #fff;
+.rsvp-container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
   max-width: 600px;
   margin: auto;
-  padding: 40px 30px;
-  border-radius: 30px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  animation: fadeInUp 1s ease both;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  animation: fadeInUp 1s ease;
 }
 
 .rsvp-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 36px;
-  margin-bottom: 5px;
-  color: #000;
-}
-
-.rsvp-subtitle {
-  font-size: 16px;
-  color: #555;
+  text-align: center;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.rsvp-summary {
+#rsvp-form {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.rsvp-summary div {
-  font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-size: 16px;
-}
-
-.hadir {
-  background: #d4fcdc;
-  color: #1b5e20;
-}
-
-.tidak-hadir {
-  background: #fcdede;
-  color: #c62828;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
 #rsvp-form input,
-#rsvp-form textarea,
-#rsvp-form select,
-#rsvp-form button {
-  width: 100%;
-  margin: 10px 0;
+#rsvp-form textarea {
   padding: 12px;
-  font-size: 16px;
-  border-radius: 10px;
   border: 1px solid #ccc;
-  font-family: 'Poppins', sans-serif;
-  color: #000;
+  border-radius: 10px;
+  font-size: 16px;
+  color: black;
 }
 
 #rsvp-form button {
-  background-color: #000;
+  padding: 12px;
+  background: black;
   color: white;
   border: none;
+  border-radius: 10px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-#ucapan-list {
-  margin-top: 30px;
-  text-align: left;
+#daftar-ucapan {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .ucapan-item {
-  background: #f9f9f9;
-  padding: 15px;
-  border-left: 4px solid #7b1e27;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  background: #f5f5f5;
+  padding: 12px 15px;
+  border-radius: 12px;
+  color: black;
 }
 
 .ucapan-item .nama {
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
+  from {opacity: 0; transform: translateY(40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
 
    
 /* Animasi Umum */
@@ -1004,29 +971,16 @@
 </div>
 </section>
 
-<!-- SECTION RSVP -->
-<section id="rsvp-section" class="scroll-fade">
-  <div class="rsvp-box">
-    <h2 class="rsvp-title">Ucapan Sesuatu</h2>
-    <p class="rsvp-subtitle">Berikan Ucapan & Doa Restu</p>
-
-    <div class="rsvp-summary">
-      <div class="hadir">✔ <span id="hadir-count">0</span> Hadir</div>
-      <div class="tidak-hadir">✘ <span id="tidak-hadir-count">0</span> Tidak Hadir</div>
-    </div>
-
+<!-- RSVP Section -->
+<section id="rsvp">
+  <div class="rsvp-container fade-in-up">
+    <h2 class="rsvp-title">Ucapan & Doa</h2>
     <form id="rsvp-form">
-      <input type="text" id="nama" placeholder="Nama" required>
-      <textarea id="pesan" placeholder="Ucapan" required></textarea>
-      <select id="kehadiran" required>
-        <option value="">Konfirmasi Kehadiran</option>
-        <option value="hadir">Hadir</option>
-        <option value="tidak">Tidak Hadir</option>
-      </select>
+      <input type="text" id="nama" placeholder="Nama" required />
+      <textarea id="pesan" placeholder="Tulis ucapan..." required></textarea>
       <button type="submit">Kirim</button>
     </form>
-
-    <div id="ucapan-list" class="ucapan-list"></div>
+    <div id="daftar-ucapan"></div>
   </div>
 </section>
 
@@ -1056,40 +1010,55 @@
 </div>
 </footer>
 
-<script>
-document.getElementById("rsvp-form").addEventListener("submit", function(e) {
-  e.preventDefault();
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
-  const nama = document.getElementById("nama").value.trim();
-  const pesan = document.getElementById("pesan").value.trim();
-  const kehadiran = document.getElementById("kehadiran").value;
+  const firebaseConfig = {
+    apiKey: "AIzaSyChXZ5CXZrvOBmce0tGmoLNPpGyxhlXs_E",
+    authDomain: "undanganweb-cf71d.firebaseapp.com",
+    projectId: "undanganweb-cf71d",
+    storageBucket: "undanganweb-cf71d.firebasestorage.app",
+    messagingSenderId: "151711844612",
+    appId: "1:151711844612:web:2044b80c1c6166db2ee851",
+    measurementId: "G-5LZ3S3PBS0"
+  };
 
-  if (!nama || !pesan || !kehadiran) return;
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-  const list = document.getElementById("ucapan-list");
+  const form = document.getElementById("rsvp-form");
+  const daftarUcapan = document.getElementById("daftar-ucapan");
 
-  const item = document.createElement("div");
-  item.className = "ucapan-item";
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const nama = document.getElementById("nama").value;
+    const pesan = document.getElementById("pesan").value;
 
-  item.innerHTML = `
-    <div class="nama">${nama} ${kehadiran === 'hadir' ? '✔' : '✘'}</div>
-    <div class="pesan">${pesan}</div>
-  `;
+    await addDoc(collection(db, "ucapan"), {
+      nama,
+      pesan,
+      waktu: Date.now()
+    });
 
-  list.prepend(item);
+    form.reset();
+  });
 
-  // Update counter
-  const hadirCount = document.getElementById("hadir-count");
-  const tidakCount = document.getElementById("tidak-hadir-count");
-  if (kehadiran === "hadir") {
-    hadirCount.textContent = parseInt(hadirCount.textContent) + 1;
-  } else {
-    tidakCount.textContent = parseInt(tidakCount.textContent) + 1;
-  }
-
-  // Reset form
-  document.getElementById("rsvp-form").reset();
-});
+  // Menampilkan daftar ucapan (real-time)
+  const q = query(collection(db, "ucapan"), orderBy("waktu", "desc"));
+  onSnapshot(q, (snapshot) => {
+    daftarUcapan.innerHTML = "";
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      const item = document.createElement("div");
+      item.classList.add("ucapan-item");
+      item.innerHTML = `
+        <div class="nama">${data.nama}</div>
+        <div class="pesan">${data.pesan}</div>
+      `;
+      daftarUcapan.appendChild(item);
+    });
+  });
 
    
 // ANIMASI SCROLL MASUK
