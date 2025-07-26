@@ -159,49 +159,39 @@
       font-family: 'Poppins', sans-serif;
     }
 /* BAGIAN AYAT AL-QURAN */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
+#ucapan {
+  background-image: url('beground-pembuka.png');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.fade-in-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.ayat-quran {
-  background: #fef8f2 url('beground-galeri.png') no-repeat top center;
-  background-size: 100% auto;
-  padding: 120px 20px 80px;
+.ucapan-box {
+  background: white;
+  padding: 40px 30px 80px;
+  max-width: 500px;
   text-align: center;
-  font-family: Georgia, serif;
-  color: #5a2c1e;
+  border-radius: 40px 40px 80px 80px; /* bagian bawah melengkung */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   position: relative;
 }
-
-.isi-ayat {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px 24px;
-  background-color: rgba(255, 255, 255, 0.85);
-  border-left: 4px solid #d4af37;
-  border-right: 4px solid #d4af37;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+.ucapan-teks {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.ucapan-nama {
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  color: #d63384;
 }
 
-.teks-ayat {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  font-style: italic;
-  margin-bottom: 12px;
-}
 
-.sumber-ayat {
-  font-weight: bold;
-  color: #7b1f26;
-}
-    /* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
+/* BACKGROUND KHUSUS HANYA UNTUK BAGIAN BISMILLAH SAMPAI PENGANTIN */
 .bg-section-khusus {
   background-image: url('background-khusus.jpg');
   background-repeat: repeat-y;
@@ -645,7 +635,7 @@
 <audio autoplay="" id="bg-music" loop="" src="lagu.mp3"></audio>
    
 
-<!--Penutup-->
+<!--Ayat al Quran-->
 <section id="ucapan">
 <div class="ucapan-box">
 <p class="ucapan-teks">
