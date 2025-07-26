@@ -203,7 +203,7 @@
   min-height: 100vh;
 }
 .box-putih-kecil {
-  background: rgba(255, 255, 255, 0.60);
+  background: rgba(255, 255, 255, 0.75);
   padding: 40px 24px;
   margin: 0 auto;
   max-width: 720px;
@@ -735,7 +735,7 @@
 </section>
 
 <!-- Countdown dalam box putih -->
-<section id="Ayat">
+<section id="ucapan">
   <div class="ucapan-box">
     <div class="countdown-wrapper">
       <div class="countdown-box">
@@ -753,6 +753,8 @@
       <div class="countdown-box">
         <span id="seconds">00</span>
         <label>Detik</label>
+         <div class="tanggal" id="hero-tanggal">
+      Selasa, 7 Oktober 2025 • 08.00 WIB
       </div>
     </div>
   </div>
@@ -865,6 +867,33 @@
 </footer>
 
 <script>
+  // Set tanggal target (misal: 7 Oktober 2025 08:00 WIB)
+  const targetDate = new Date("2025-10-07T01:00:00Z").getTime();
+
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      document.querySelector(".countdown-wrapper").innerHTML = "Acara telah dimulai.";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, '0');
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+   
   function tutupUndanganKeMaps() {
     const undangan = document.querySelector('.halaman-undangan'); // ganti class sesuai elemen kamu
     if (undangan) {
