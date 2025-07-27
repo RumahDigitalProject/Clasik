@@ -338,12 +338,20 @@
 }
 
 /* Animasi untuk .ucapan-box: slide in from left */
-.ucapan-box {
+.ucapan1-box {
   opacity: 0;
   transform: translateX(-50px);
   transition: all 0.6s ease-out;
 }
-
+.ucapan1-box {
+  background: rgba(255, 255, 255, 0.97); /* Putih transparan */
+  padding: 40px 30px 40px;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 40px 40px 80px 80px; /* bagian bawah melengkung */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  position: relative;
+}
 .ucapan-box.show {
   opacity: 1;
   transform: translateX(0);
@@ -898,7 +906,7 @@
 
 <!-- Countdown Section -->
 <section id="ucapan">
-  <div class="ucapan-box">
+  <div class="ucapan1-box">
     <div class="countdown-grid">
       <div class="countdown-item">
         <div class="count-number" id="hari">00</div>
