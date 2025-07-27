@@ -712,14 +712,14 @@
 }
 
 /* RSVP SECTION */
-    #rsvp {
+#rsvp {
   background: #ffffff;
   padding: 40px 24px;
   margin: 40px auto;
   border-radius: 16px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  max-width: 480px; /* Lebih ramping dari 600px */
-  text-align: center; /* 🎯 ini bikin semua isi center */
+  max-width: 480px;
+  text-align: center;
 }
 
 #rsvp h2 {
@@ -730,11 +730,9 @@
   font-family: 'Great Vibes', cursive;
 }
 
+/* Sembunyikan label */
 #rsvp label {
-  font-weight: bold;
-  display: block;
-  margin: 8px 0 4px;
-  text-align: center; /* kalau mau label tetap rata kiri */
+  display: none;
 }
 
 #rsvp input,
@@ -747,6 +745,19 @@
   margin-bottom: 16px;
   font-size: 16px;
   box-sizing: border-box;
+}
+
+/* Placeholder style */
+#rsvp input::placeholder,
+#rsvp textarea::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Placeholder untuk select */
+#rsvp select:invalid {
+  color: #999;
+  font-style: italic;
 }
 
 #rsvp button {
@@ -764,11 +775,13 @@
 #rsvp button:hover {
   background: darkgreen;
 }
+
 .form-wrapper {
-  max-width: 200px;     /* 🎯 lebar maksimum kolom input */
-  margin: 0 auto;       /* Biar kolomnya di tengah */
-  text-align: center;     /* Label tetap rata kiri */
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center;
 }
+
 
    
 /* Animasi Umum */
@@ -1038,21 +1051,15 @@
 <section id="rsvp" data-aos="fade-up">
   <h2>Wishes</h2>
   <form id="rsvpForm">
-    <div class="form-wrapper">
-    <label for="nama">Nama:</label>
-    <input type="text" id="nama" required />
-
-    <label for="ucapan">Ucapan:</label>
-    <textarea id="pesanUcapan" required></textarea>
-
-    <label for="kehadiran">Konfirmasi Kehadiran:</label>
-    <select id="kehadiran" required>
-      <option value="">-- Pilih --</option>
-      <option value="Hadir">Hadir</option>
-      <option value="Tidak Hadir">Tidak Hadir</option>
-    </select>
-
-    <button type="submit">Kirim</button>
+    <div class="form-wrapper" data-aos="fade-up" data-aos-delay="200">
+      <input type="text" id="nama" placeholder="Tulis namamu di sini..." required />
+      <textarea id="pesanUcapan" placeholder="Berikan ucapan atau doa..." required></textarea>
+      <select id="kehadiran" required>
+        <option value="" disabled selected hidden>Pilih status kehadiran...</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+      <button type="submit">Kirim</button>
     </div>
   </form>
 </section>
@@ -1111,6 +1118,13 @@
         window.open(url, "_blank");
       });
     }
+  });
+
+//ANIMASI SRVP
+  AOS.init({
+    once: false, // animasi bisa aktif lagi saat scroll ke atas
+    duration: 800,
+    easing: 'ease-out',
   });
 
 //EFEK BUTIRAN//
