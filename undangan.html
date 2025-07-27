@@ -323,63 +323,6 @@
   margin: 20px;
   color: #f3a302; 
 }
-
-/*HITUNG MUNDUR*/
-.countdown-grid {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-/*Hitung mUndur*/
-.penutup-section {
-  background-image: url('background-penutup.webp');
-  padding: 60px 20px;
-  text-align: center;
-  background-size: contain;
-  background-position: top center;
-  margin-bottom: 0px;
-  min-height: 100vh;
-}
-
-.penutup-box {
-  max-width: 700px;
-  margin: 0 auto;
-  background: #fefaf6;
-  padding: 40px 25px;
-  border-radius: 25px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-}
-
-.ucapan {
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  color: #5a4e4d;
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-.nama-penutup {
-  font-family: Georgia, serif;
-  font-size: 38px;
-  color: #b53f74;
-  margin-top: 30px;
-}
-#ucapan {
-  background-image: url('beground-penutup.webp');
-  background-size: cover;
-  background-position: center;
-  padding: 80px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.judul-acara {
-  font-size: 16px;
-  font-weight: 500;
-  color: #333;
-}
    
 /*HITUNG MUNDUR*/
 .countdown-grid {
@@ -394,7 +337,7 @@
 }
 
 /* Animasi untuk .ucapan-box: slide in from left */
-.waktu-box {
+.ucapan-box {
   opacity: 0;
   transform: translateX(-50px);
   transition: all 0.6s ease-out;
@@ -954,7 +897,7 @@
 
 <!-- Countdown Section -->
 <section id="ucapan">
-  <div class="waktu-box">
+  <div class="ucapan-box">
     <div class="countdown-grid">
       <div class="countdown-item">
         <div class="count-number" id="hari">00</div>
