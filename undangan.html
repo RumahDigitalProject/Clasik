@@ -119,37 +119,43 @@
   gap: 12px;
 }
 
-/* Efek ketik dari samping */
-.nama, .dan {
-  color: #fff; /* Warna putih untuk nama dan simbol & */
+.nama {
+  text-align: center;
   font-family: 'Great Vibes', cursive;
   font-size: 32px;
-  text-align: center;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 0.15em solid transparent;
-  animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
+  color: #fff; /* ✅ semua nama jadi putih */
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.nama:last-of-type {
+  animation-delay: 0.6s;
 }
 
 .dan {
   font-size: 40px;
-  animation-delay: 2s; /* muncul setelah nama pertama */
+  font-family: 'Great Vibes', cursive;
+  color: #f3a302; /* ✅ warna emas khusus simbol & */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s ease-out forwards;
+  animation-delay: 0.4s;
 }
 
-.nama:last-of-type {
-  animation-delay: 3.5s; /* muncul setelah simbol & */
+/* Animasi */
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* Efek ketik */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink {
-  from, to { border-color: transparent; }
-  50% { border-color: #fff; }
-}
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
     
 /* BAGIAN AYAT AL-QURAN */
