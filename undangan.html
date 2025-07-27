@@ -839,48 +839,6 @@
   transform: none;
 }
    
-/*ANIMASI BUNGA*/
-.bunga-muncul {
-    position: absolute;
-    top: 75%;
-    transform: translateY(-50%);
-    z-index: 4;
-    pointer-events: none;
-    opacity: 0.9;
-  }
-
-  .bunga-muncul img {
-    width: 120px;
-    animation: goyangAngin 4s ease-in-out infinite;
-  }
-
-  .bunga-muncul.kanan {
-    right: 0;
-  }
-
-  .bunga-muncul.kiri {
-    left: 0;
-  }
-
-  @keyframes goyangAngin {
-  0%   { transform: rotate(0deg) translateY(0); }
-  25%  { transform: rotate(3deg) translateY(-4px); }
-  50%  { transform: rotate(-2deg) translateY(3px); }
-  75%  { transform: rotate(2deg) translateY(-2px); }
-  100% { transform: rotate(0deg) translateY(0); }
-  20%  { transform: rotate(10deg) translateY(-10px); }
-  50%  { transform: rotate(-8deg) translateY(6px); }
-  80%  { transform: rotate(6deg) translateY(-6px); }
-  100% { transform: rotate(0deg) translateY(0); }
-
-    0%   { transform: rotate(0deg) translateY(0); }
-    25%  { transform: rotate(6deg) translateY(-6px); }
-    50%  { transform: rotate(-5deg) translateY(4px); }
-    75%  { transform: rotate(4deg) translateY(-4px); }
-    100% { transform: rotate(0deg) translateY(0); }
-  }
-
-
 
 </style>
 </head>
@@ -898,16 +856,6 @@
   <div class="particle-overlay"></div>
 
   <div class="black-overlay"></div>
-
-<!-- 🌸 Bunga Kanan -->
-<div class="bunga-muncul kanan" data-aos="fade-left" data-aos-duration="1200">
-  <img src="bunga-kanan.webp" alt="Bunga Kanan" />
-</div>
-
-<!-- 🌸 Bunga Kiri -->
-<div class="bunga-muncul kiri" data-aos="fade-right" data-aos-duration="1200">
-  <img src="bunga-kiri.webp" alt="Bunga Kiri" />
-</div>
 
 
   <!-- Konten nama pengantin -->
