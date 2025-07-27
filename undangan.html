@@ -510,6 +510,27 @@
   z-index: -1;
   pointer-events: none;
 }
+/* Default: sembunyi dan posisi awal */
+.slide-in-left,
+.slide-in-right {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.slide-in-left {
+  transform: translateX(-80px);
+}
+.slide-in-right {
+  transform: translateX(80px);
+}
+
+/* Saat masuk layar */
+.slide-in-left.show,
+.slide-in-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /*MAPAS*/
 .tombol-maps {
   text-align: center;
@@ -937,7 +958,7 @@
   <div class="bg-static"></div> <!-- 🎯 background diam hanya untuk section ini -->
 
   <div class="box-acara fade-in-up">
-    <div class="bingkai-emas">
+    <div class="bingkai-emas slide-in-right">
       <p class="judul">Akad Nikah</p>
       <p class="orang-tua">SELASA</p>
       <p class="tanggal">07</p>
@@ -960,7 +981,7 @@
   <div class="bg-static"></div>
 
   <div class="box-acara fade-in-up">
-    <div class="bingkai-emas">
+    <div class="bingkai-emas slide-in-left">
       <p class="judul">Resepsi</p>
       <p class="orang-tua">RABU</p>
       <p class="tanggal">08</p>
@@ -1107,7 +1128,24 @@ document.addEventListener('DOMContentLoaded', function () {
     container.appendChild(dot);
   }
 });
-   
+
+// BINGKAI EMAS
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show"); // Hapus jika ingin 1x animasi saja
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.slide-in-left, .slide-in-right').forEach(el => {
+    observer.observe(el);
+  });
+});
+
 // ANIMASI SCROLL MASUK
 const animatedElements = [
   ...document.querySelectorAll('.pengantin'),
