@@ -851,7 +851,7 @@
 
   .bunga-muncul img {
     width: 120px;
-    animation: goyangAngin 3.5s ease-in-out infinite;
+    animation: goyangAngin 4s ease-in-out infinite;
   }
 
   .bunga-muncul.kanan {
@@ -863,12 +863,24 @@
   }
 
   @keyframes goyangAngin {
+  0%   { transform: rotate(0deg) translateY(0); }
+  25%  { transform: rotate(3deg) translateY(-4px); }
+  50%  { transform: rotate(-2deg) translateY(3px); }
+  75%  { transform: rotate(2deg) translateY(-2px); }
+  100% { transform: rotate(0deg) translateY(0); }
+  20%  { transform: rotate(10deg) translateY(-10px); }
+  50%  { transform: rotate(-8deg) translateY(6px); }
+  80%  { transform: rotate(6deg) translateY(-6px); }
+  100% { transform: rotate(0deg) translateY(0); }
+
     0%   { transform: rotate(0deg) translateY(0); }
     25%  { transform: rotate(6deg) translateY(-6px); }
     50%  { transform: rotate(-5deg) translateY(4px); }
     75%  { transform: rotate(4deg) translateY(-4px); }
     100% { transform: rotate(0deg) translateY(0); }
   }
+
+
 
 </style>
 </head>
@@ -1161,7 +1173,7 @@ document.addEventListener('DOMContentLoaded', function () {
     dot.style.left = Math.random() * 100 + 'vw';
     dot.style.top = Math.random() * -100 + 'px';
     dot.style.opacity = Math.random() * 0.4 + 0.1;
-    dot.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    dot.style.animationDuration = (Math.random() * 7 + 7) + 's';
     container.appendChild(dot);
   }
 });
@@ -1277,5 +1289,8 @@ window.addEventListener('load', () => {
 });
 
 </script>
+
+
+
 </body>
    </html>
