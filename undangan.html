@@ -838,29 +838,38 @@
   opacity: 1;
   transform: none;
 }
-.bunga-kanan-fix {
-  position: absolute;
-  top: 65%;
-  right: 0;
-  transform: translateY(-50%);
-  z-index: 4;
-  pointer-events: none;
-}
+   
+/*ANIMASI BUNGA*/
+.bunga-muncul {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.9;
+  }
 
-.bunga-kanan-fix img {
-  width: 110px;
-  opacity: 0.9;
-  animation: goyangAngin 4.5s ease-in-out infinite;
-}
+  .bunga-muncul img {
+    width: 120px;
+    animation: goyangAngin 3.5s ease-in-out infinite;
+  }
 
-/* Efek goyang bunga seperti tertiup angin */
-@keyframes goyangAngin {
-  0%   { transform: rotate(0deg); }
-  25%  { transform: rotate(1.5deg); }
-  50%  { transform: rotate(0deg); }
-  75%  { transform: rotate(-1.5deg); }
-  100% { transform: rotate(0deg); }
-}
+  .bunga-muncul.kanan {
+    right: 0;
+  }
+
+  .bunga-muncul.kiri {
+    left: 0;
+  }
+
+  @keyframes goyangAngin {
+    0%   { transform: rotate(0deg) translateY(0); }
+    25%  { transform: rotate(6deg) translateY(-6px); }
+    50%  { transform: rotate(-5deg) translateY(4px); }
+    75%  { transform: rotate(4deg) translateY(-4px); }
+    100% { transform: rotate(0deg) translateY(0); }
+  }
+
 </style>
 </head>
 <body>
@@ -878,10 +887,16 @@
 
   <div class="black-overlay"></div>
 
-<!-- BUNGA -->
-   <div class="bunga-kanan-fix" data-aos="fade-right" data-aos-duration="1200">
-  <img src="bunga-kanan.webp" alt="Bunga" />
+<!-- 🌸 Bunga Kanan -->
+<div class="bunga-muncul kanan" data-aos="fade-left" data-aos-duration="1200">
+  <img src="bunga-kanan.webp" alt="Bunga Kanan" />
 </div>
+
+<!-- 🌸 Bunga Kiri -->
+<div class="bunga-muncul kiri" data-aos="fade-right" data-aos-duration="1200">
+  <img src="bunga-kiri.webp" alt="Bunga Kiri" />
+</div>
+
 
   <!-- Konten nama pengantin -->
   <div class="content-wrapper">
