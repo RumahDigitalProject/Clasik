@@ -142,6 +142,39 @@
   animation: slideUp 0.9s ease-out forwards;
   animation-delay: 0.5s;
 }
+.slideshow {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1; /* Di atas slide, di bawah black-overlay dan konten */
+  pointer-events: none;
+}
+
+.particle-overlay span {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15); /* putih transparan */
+  border-radius: 50%;
+  animation: rainFall 6s linear infinite;
+}
+
+/* Animasi turun ke bawah */
+@keyframes rainFall {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
 
 /* Animasi */
 @keyframes slideIn {
@@ -808,31 +841,35 @@
 </head>
 <body>
    
-    <!-- Bagian slideshow -->
+<!-- Bagian slideshow -->
 <div class="slideshow">
-<div class="slide slide1"></div>
-<div class="slide slide2"></div>
-<div class="slide slide3"></div>
-<div class="slide slide4"></div>
-<div class="slide slide5"></div>
-<div class="black-overlay"></div>
-   
-    <!-- Tambah ID ke elemen yang ingin dianimasikan satu per satu -->
-<div class="content-wrapper">
-<div class="nama-wrapper" id="hero-nama">
-<div class="nama">
-<div>Bambang</div>
-<div>Irawan</div>
-</div>
-<div class="dan">&amp;</div>
-<div class="nama">
-<div>Ayu</div>
-<div>Septianingrum</div>
-</div>
-</div>
+  <div class="slide slide1"></div>
+  <div class="slide slide2"></div>
+  <div class="slide slide3"></div>
+  <div class="slide slide4"></div>
+  <div class="slide slide5"></div>
+
+  <!-- ✨ Tambahkan efek hujan di sini -->
+  <div class="particle-overlay"></div>
+
+  <div class="black-overlay"></div>
+
+  <!-- Konten nama pengantin -->
+  <div class="content-wrapper">
+    <div class="nama-wrapper" id="hero-nama">
+      <div class="nama">
+        <div>Bambang</div>
+        <div>Irawan</div>
+      </div>
+      <div class="dan">&amp;</div>
+      <div class="nama">
+        <div>Ayu</div>
+        <div>Septianingrum</div>
+      </div>
     </div>
+  </div>
 </div>
-</div>
+
    
 <!-- Musik latar -->
 <audio autoplay="" id="bg-music" loop="" src="lagu.mp3"></audio>
@@ -1068,6 +1105,22 @@
       });
     }
   });
+
+//EFEK BUTIRAN//
+document.addEventListener('DOMContentLoaded', function () {
+  const container = document.querySelector('.particle-overlay');
+  for (let i = 0; i < 40; i++) {
+    const dot = document.createElement('span');
+    const size = Math.random() * 8 + 4; // 4–12px
+    dot.style.width = size + 'px';
+    dot.style.height = size + 'px';
+    dot.style.left = Math.random() * 100 + 'vw';
+    dot.style.top = Math.random() * -100 + 'px';
+    dot.style.opacity = Math.random() * 0.4 + 0.1;
+    dot.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    container.appendChild(dot);
+  }
+});
    
 // ANIMASI SCROLL MASUK
 const animatedElements = [
