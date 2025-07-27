@@ -196,8 +196,9 @@
 .bg-section-khusus {
   background-image: url('beground-khusus.webp');
   background-repeat: repeat-y;
-  background-size: contain;
-  background-position: top center;
+  background-size: cover; /* ubah ke cover agar full section */
+  background-position: center top;
+  background-attachment: fixed; /* 🎯 ini bikin background diam */
   background-color: #fff;
   padding: 80px 20px;
   margin-bottom: 0px;
