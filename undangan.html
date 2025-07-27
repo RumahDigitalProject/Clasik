@@ -380,7 +380,8 @@
   font-weight: 500;
   color: #333;
 }
-
+   
+/*HITUNG MUNDUR*/
 .countdown-grid {
   display: flex;
   justify-content: space-between;
@@ -392,8 +393,21 @@
   margin-bottom: 20px;
 }
 
+/* Animasi untuk .ucapan-box: slide in from left */
+.waktu-box {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.6s ease-out;
+}
+
+.ucapan-box.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Animasi countdown-item: fade in + slide up */
 .countdown-item {
-  background:#555;
+  background: #555;
   border-radius: 20px;
   width: 80px;
   height: 80px;
@@ -402,20 +416,35 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
 }
+
+.countdown-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay berurutan tiap item */
+.countdown-item:nth-child(1) { transition-delay: 0.1s; }
+.countdown-item:nth-child(2) { transition-delay: 0.2s; }
+.countdown-item:nth-child(3) { transition-delay: 0.3s; }
+.countdown-item:nth-child(4) { transition-delay: 0.4s; }
 
 .count-number {
   font-size: 22px;
   font-weight: bold;
   margin-bottom: 1px;
-  color:  #ffffff;
+  color: #ffffff;
 }
 
 .count-label {
   font-size: 14px;
   color: #ffffff;
 }
-
+   
 /* DATE*/
   .acara {
   background: #7b1f26 url('beground-date.webp') no-repeat center center;
@@ -925,7 +954,7 @@
 
 <!-- Countdown Section -->
 <section id="ucapan">
-  <div class="ucapan-box">
+  <div class="waktu-box">
     <div class="countdown-grid">
       <div class="countdown-item">
         <div class="count-number" id="hari">00</div>
@@ -1175,6 +1204,25 @@ window.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => document.getElementById('hero-tanggal')?.classList.add('fade-in-up', 'show'), 1400);
 });
 
+// WAKTU MUNDUR ANIMASI 
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show"); // Hapus ini jika animasi cukup 1x
+      }
+    });
+  }, { threshold: 0.2 });
+
+  const ucapanBox = document.querySelector('.ucapan-box');
+  const countdownItems = document.querySelectorAll('.countdown-item');
+
+  if (ucapanBox) observer.observe(ucapanBox);
+  countdownItems.forEach(item => observer.observe(item));
+});
+   
 // MUSIK LATAR DAN COUNTDOWN
 const audio = document.getElementById('bg-music');
 
