@@ -728,6 +728,11 @@
 #rsvp button:hover {
   background: darkgreen;
 }
+.form-wrapper {
+  max-width: 200px;     /* 🎯 lebar maksimum kolom input */
+  margin: 0 auto;       /* Biar kolomnya di tengah */
+  text-align: center;     /* Label tetap rata kiri */
+}
 
    
 /* Animasi Umum */
@@ -991,6 +996,7 @@
 <section id="rsvp" data-aos="fade-up">
   <h2>Wishes</h2>
   <form id="rsvpForm">
+    <div class="form-wrapper">
     <label for="nama">Nama:</label>
     <input type="text" id="nama" required />
 
@@ -1005,6 +1011,7 @@
     </select>
 
     <button type="submit">Kirim</button>
+    </div>
   </form>
 </section>
 
