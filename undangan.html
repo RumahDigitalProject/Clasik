@@ -838,6 +838,29 @@
   opacity: 1;
   transform: none;
 }
+.bunga-kanan-fix {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.bunga-kanan-fix img {
+  width: 110px;
+  opacity: 0.9;
+  animation: goyangAngin 4.5s ease-in-out infinite;
+}
+
+/* Efek goyang bunga seperti tertiup angin */
+@keyframes goyangAngin {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(1.5deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-1.5deg); }
+  100% { transform: rotate(0deg); }
+}
 </style>
 </head>
 <body>
@@ -854,6 +877,11 @@
   <div class="particle-overlay"></div>
 
   <div class="black-overlay"></div>
+
+<!-- BUNGA -->
+   <div class="bunga-kanan-fix" data-aos="fade-right" data-aos-duration="1200">
+  <img src="bunga-kanan.png" alt="Bunga" />
+</div>
 
   <!-- Konten nama pengantin -->
   <div class="content-wrapper">
